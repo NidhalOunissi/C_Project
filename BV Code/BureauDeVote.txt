@@ -1,0 +1,12 @@
+1 1518555223 10 Rue Taieb Mhiri, Roh  2000
+1 352518231 10 Rue Taieb Mhiri, Roh  2000
+1 1431654487 10 Rue Taieb Mhiri, Roh  2000
+1 -939364265 10 Rue Taieb Mhiri, Roh  2000
+1 1431654487 10 Rue Taieb Mhiri, Roh  2000
+1 -1811115945 10 Rue Taieb Mhiri, Roh  2000
+1 1431654487 10 Rue Taieb Mhiri, Roh  2000
+1 -412422041 10 Rue Taieb Mhiri, Roh  2000
+1 -1896087401 10 Rue Taieb Mhiri, Roh  2000
+2 -1896087396 7 Rue Al Kods, Rohia S  1500
+1 720 10 Rue Taieb Mhiri  2000
+2 301 7 Rue Al Kods  1500
