@@ -11,6 +11,7 @@
 
 
 Utilisateur utl;
+Utilisateur aux;
 
 
 void
@@ -74,7 +75,6 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
     strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
 
     
-
 
     ajouterUtilisateur("Utilisateur.txt",utl);
 
@@ -266,6 +266,34 @@ on_GestionUtilisateur_Btn_clicked      (GtkButton       *button,
     gtk_widget_hide(Acceuil_Admin);
     GestionUtilisateur=create_GestionUtilisateur();
     gtk_widget_show(GestionUtilisateur);
+
+}
+
+
+void
+on_Modifier_Utilisateur_clicked        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    int id;
+    char convINT [30];
+
+    GtkWidget * Id_mod;
+    GtkWidget * Notebook1;
+
+    
+
+
+    Id_mod=lookup_widget(button,"ID_Modif");
+    strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
+
+    id = atoi(convINT);
+
+
+
+    modifierUtilisateur("Utilisateur.txt",id,aux,utl);
+
+
 
 }
 

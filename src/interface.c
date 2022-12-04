@@ -116,7 +116,7 @@ create_GestionUtilisateur (void)
   GtkWidget *frame4;
   GtkWidget *alignment4;
   GtkWidget *fixed6;
-  GtkWidget *entry7;
+  GtkWidget *ID_Modif;
   GtkWidget *Modifier_Utilisateur;
   GtkWidget *alignment10;
   GtkWidget *hbox4;
@@ -578,11 +578,11 @@ create_GestionUtilisateur (void)
   gtk_widget_show (fixed6);
   gtk_container_add (GTK_CONTAINER (alignment4), fixed6);
 
-  entry7 = gtk_entry_new ();
-  gtk_widget_show (entry7);
-  gtk_fixed_put (GTK_FIXED (fixed6), entry7, 392, 112);
-  gtk_widget_set_size_request (entry7, 250, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry7), 8226);
+  ID_Modif = gtk_entry_new ();
+  gtk_widget_show (ID_Modif);
+  gtk_fixed_put (GTK_FIXED (fixed6), ID_Modif, 392, 112);
+  gtk_widget_set_size_request (ID_Modif, 250, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (ID_Modif), 8226);
 
   Modifier_Utilisateur = gtk_button_new ();
   gtk_widget_show (Modifier_Utilisateur);
@@ -735,6 +735,9 @@ create_GestionUtilisateur (void)
   g_signal_connect ((gpointer) Btn_Exit1, "leave",
                     G_CALLBACK (on_Btn_Exit_leave),
                     NULL);
+  g_signal_connect ((gpointer) Modifier_Utilisateur, "clicked",
+                    G_CALLBACK (on_Modifier_Utilisateur_clicked),
+                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (GestionUtilisateur, GestionUtilisateur, "GestionUtilisateur");
@@ -822,7 +825,7 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame4, "frame4");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment4, "alignment4");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed6, "fixed6");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, entry7, "entry7");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, ID_Modif, "ID_Modif");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Modifier_Utilisateur, "Modifier_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment10, "alignment10");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox4, "hbox4");

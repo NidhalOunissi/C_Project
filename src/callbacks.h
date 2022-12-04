@@ -73,3 +73,7 @@ on_GestionUtilisateur_activate         (GtkButton       *button,
 void
 on_GestionUtilisateur_Btn_clicked      (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_Modifier_Utilisateur_clicked        (GtkButton       *button,
+                                        gpointer         user_data);
