@@ -47,7 +47,7 @@ int ajouterUtilisateur (char * filename, Utilisateur p)
     FILE * f=fopen(filename, "a");
     if(f!=NULL)
     {
-        fprintf(f,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
+        fprintf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
         fclose(f);
         return 1;
     }
@@ -60,16 +60,16 @@ int modifierUtilisateur( char * filename, int id, Utilisateur aux, Utilisateur p
     FILE * f2=fopen("nouv.txt", "w");
     if(f!=NULL && f2!=NULL)
     {
-        while(fscanf(f,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,&p.CIN,&p.DateNaissance.jours,p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
+        while(fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,&p.DateNaissance.jours,p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
         {
             if(p.ID == id)
             {
                 //aux=SaisirUtilisateur();
-                fprintf(f2,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",aux.nom,aux.prenom,aux.CIN,aux.DateNaissance.jours,aux.DateNaissance.mois,aux.DateNaissance.annee,aux.ID,aux.mdp,aux.genre,aux.role[0],aux.role[1],aux.role[2],aux.role[3],aux.BV,aux.v.vote);
+                fprintf(f2,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",aux.nom,aux.prenom,aux.CIN,aux.DateNaissance.jours,aux.DateNaissance.mois,aux.DateNaissance.annee,aux.ID,aux.mdp,aux.genre,aux.role[0],aux.role[1],aux.role[2],aux.role[3],aux.BV,aux.v.vote);
                 tr=1;
             }
             else
-                fprintf(f2,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
+                fprintf(f2,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
 
         }
     }
@@ -88,12 +88,12 @@ int supprimerUtilisateur(char * filename, int id)
     FILE * f2=fopen("nouv.txt", "w");
     if(f!=NULL && f2!=NULL)
     {
-        while(fscanf(f,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,&p.CIN,&p.DateNaissance.jours,p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
+        while(fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,&p.DateNaissance.jours,p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
         {
             if(p.ID == id)
                 tr=1;
             else
-                fprintf(f2,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
+                fprintf(f2,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
 
         }
     }
@@ -111,7 +111,7 @@ int chercherUtilisateur(char * filename, int id)
     FILE * f=fopen(filename, "r");
     if(f!=NULL)
     {
-        while(tr==0 && (fscanf(f,"%s %s %d %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,&t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
+        while(tr==0 && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
         {
             if(t.ID == id)
             {

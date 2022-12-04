@@ -56,10 +56,6 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
     GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
     
 
-
-
-
-
     Nom=lookup_widget(button, "Nom_Utilisateur");
     Prenom=lookup_widget(button, "Prenom_Utilisateur");
     Id=lookup_widget(button,"ID_utilisiateur");

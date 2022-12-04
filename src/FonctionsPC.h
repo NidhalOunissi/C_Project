@@ -19,7 +19,7 @@ typedef struct
 {
     char nom [30];
     char prenom [30];
-    int CIN;
+    char CIN [8];
     Date DateNaissance;
     char ID [30];
     char mdp [30];
