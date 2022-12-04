@@ -5697,23 +5697,6 @@ Arrondissement 6</property>
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="GestionUtilisateur">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Gestion des utilisateurs</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">144</property>
-	  <property name="y">256</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="GestionElection">
 	  <property name="width_request">200</property>
 	  <property name="height_request">100</property>
@@ -5766,32 +5749,6 @@ de vote</property>
       </child>
 
       <child>
-	<widget class="GtkLabel" id="Txt_Acceuil">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Acceuil Administrateur</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">472</property>
-	  <property name="y">88</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="Btn_Exit">
 	  <property name="width_request">200</property>
 	  <property name="height_request">50</property>
@@ -5822,6 +5779,50 @@ de vote</property>
 	<packing>
 	  <property name="x">848</property>
 	  <property name="y">624</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="Txt_Acceuil">
+	  <property name="width_request">200</property>
+	  <property name="height_request">100</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Acceuil Administrateur</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">472</property>
+	  <property name="y">88</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="GestionUtilisateur_Btn">
+	  <property name="width_request">200</property>
+	  <property name="height_request">100</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Gestion des utilisateurs</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_GestionUtilisateur_Btn_clicked" last_modification_time="Sun, 04 Dec 2022 22:56:47 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">144</property>
+	  <property name="y">256</property>
 	</packing>
       </child>
     </widget>

@@ -51,7 +51,7 @@ main (int argc, char *argv[])
    */
   GestionUtilisateur = create_GestionUtilisateur ();
   gtk_widget_show (GestionUtilisateur);
-  Identification = create_Identification ();
+  /*Identification = create_Identification ();
   gtk_widget_show (Identification);
   Gestion_des_observateurs = create_Gestion_des_observateurs ();
   gtk_widget_show (Gestion_des_observateurs);
@@ -82,7 +82,7 @@ main (int argc, char *argv[])
   inputdialog1 = create_inputdialog1 ();
   gtk_widget_show (inputdialog1);
   inputdialog2 = create_inputdialog2 ();
-  gtk_widget_show (inputdialog2);
+  gtk_widget_show (inputdialog2);*/
 
   gtk_main ();
   return 0;

@@ -2251,13 +2251,13 @@ create_Accueil_Admin (void)
 {
   GtkWidget *Accueil_Admin;
   GtkWidget *fixed14;
-  GtkWidget *GestionUtilisateur;
   GtkWidget *GestionElection;
   GtkWidget *GestionBV;
   GtkWidget *Statistique;
   GtkWidget *Txt_Acceuil;
   GtkWidget *Btn_Exit;
   GtkWidget *Btn_Deconnexion;
+  GtkWidget *GestionUtilisateur_Btn;
 
   Accueil_Admin = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (Accueil_Admin), _("Accueil Administrateur"));
@@ -2265,11 +2265,6 @@ create_Accueil_Admin (void)
   fixed14 = gtk_fixed_new ();
   gtk_widget_show (fixed14);
   gtk_container_add (GTK_CONTAINER (Accueil_Admin), fixed14);
-
-  GestionUtilisateur = gtk_button_new_with_mnemonic (_("Gestion des utilisateurs"));
-  gtk_widget_show (GestionUtilisateur);
-  gtk_fixed_put (GTK_FIXED (fixed14), GestionUtilisateur, 144, 256);
-  gtk_widget_set_size_request (GestionUtilisateur, 200, 100);
 
   GestionElection = gtk_button_new_with_mnemonic (_("Gestion des \303\251lections"));
   gtk_widget_show (GestionElection);
@@ -2301,16 +2296,25 @@ create_Accueil_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed14), Btn_Deconnexion, 848, 624);
   gtk_widget_set_size_request (Btn_Deconnexion, 200, 50);
 
+  GestionUtilisateur_Btn = gtk_button_new_with_mnemonic (_("Gestion des utilisateurs"));
+  gtk_widget_show (GestionUtilisateur_Btn);
+  gtk_fixed_put (GTK_FIXED (fixed14), GestionUtilisateur_Btn, 144, 256);
+  gtk_widget_set_size_request (GestionUtilisateur_Btn, 200, 100);
+
+  g_signal_connect ((gpointer) GestionUtilisateur_Btn, "clicked",
+                    G_CALLBACK (on_GestionUtilisateur_activate),
+                    NULL);
+
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Accueil_Admin, Accueil_Admin, "Accueil_Admin");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, fixed14, "fixed14");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionUtilisateur, "GestionUtilisateur");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionElection, "GestionElection");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionBV, "GestionBV");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, Statistique, "Statistique");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, Txt_Acceuil, "Txt_Acceuil");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Exit, "Btn_Exit");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Deconnexion, "Btn_Deconnexion");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionUtilisateur_Btn, "GestionUtilisateur_Btn");
 
   return Accueil_Admin;
 }

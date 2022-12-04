@@ -99,13 +99,18 @@ on_Annuler_Utilisateur_clicked         (GtkButton       *button,
     GtkWidget * Nom;
     GtkWidget * Prenom;
 
-    Nom=lookup_widget(button, "Nom_Utilisateur");
+    GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
+    gtk_widget_hide(GestionUtilisateur);
+    Raz_GestionUtilisateur=create_GestionUtilisateur();
+    gtk_widget_show(Raz_GestionUtilisateur);
+
+    /*Nom=lookup_widget(button, "Nom_Utilisateur");
     Prenom=lookup_widget(button, "Prenom_Utilisateur");
 
     Nom=gtk_entry_new();
     //Prenom=gtk_entry_new();
 
-    gtk_entry_set_text(GTK_ENTRY(Nom),"");
+    gtk_entry_set_text(GTK_ENTRY(Nom),"");*/
     
 
 }
@@ -244,6 +249,23 @@ void
 on_Obs_Autre_toggled                   (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+
+}
+
+
+
+
+void
+on_GestionUtilisateur_Btn_clicked      (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * GestionUtilisateur;
+    GtkWidget * Acceuil_Admin;
+
+    Acceuil_Admin=lookup_widget(button,"Acceuil_Admin");
+    gtk_widget_hide(Acceuil_Admin);
+    GestionUtilisateur=create_GestionUtilisateur();
+    gtk_widget_show(GestionUtilisateur);
 
 }
 

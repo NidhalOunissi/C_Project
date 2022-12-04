@@ -65,3 +65,11 @@ on_Obs_SV_toggled                      (GtkToggleButton *togglebutton,
 void
 on_Obs_Autre_toggled                   (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
+
+void
+on_GestionUtilisateur_activate         (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_GestionUtilisateur_Btn_clicked      (GtkButton       *button,
+                                        gpointer         user_data);
