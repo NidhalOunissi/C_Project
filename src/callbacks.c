@@ -58,7 +58,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 
     Nom=lookup_widget(button, "Nom_Utilisateur");
     Prenom=lookup_widget(button, "Prenom_Utilisateur");
-    Id=lookup_widget(button,"ID_utilisiateur");
+    Id=lookup_widget(button,"ID_utilisateur");
     Cin=lookup_widget(button,"CIN_Utilisateur");
     mdp=lookup_widget(button,"Mdp_Utilisateur");
     C_Mdp=lookup_widget(button,"V_Mdp_Utilisateur");
@@ -89,6 +89,24 @@ void
 on_Annuler_Utilisateur_clicked         (GtkButton       *button,
                                         gpointer         user_data)
 {
+    GtkWidget * GestionUtilisateur;
+    GtkWidget * Raz_GestionUtilisateur;
+
+    /*gtk_widget_hide(GestionUtilisateur);
+    Raz_GestionUtilisateur=create_GestionUtilisateur();
+    gtk_widget_show(Raz_GestionUtilisateur);*/
+
+    GtkWidget * Nom;
+    GtkWidget * Prenom;
+
+    Nom=lookup_widget(button, "Nom_Utilisateur");
+    Prenom=lookup_widget(button, "Prenom_Utilisateur");
+
+    Nom=gtk_entry_new();
+    //Prenom=gtk_entry_new();
+
+    gtk_entry_set_text(GTK_ENTRY(Nom),"");
+    
 
 }
 
@@ -97,6 +115,7 @@ void
 on_Btn_Exit_leave                      (GtkButton       *button,
                                         gpointer         user_data)
 {
+    gtk_main_quit();
 
 }
 
@@ -105,6 +124,13 @@ void
 on_Btn_MenuPrincipal_clicked           (GtkButton       *button,
                                         gpointer         user_data)
 {
+    GtkWidget * GestionUtilisateur;
+    GtkWidget * Acceuil_Admin;
+
+    GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
+    gtk_widget_hide(GestionUtilisateur);
+    Acceuil_Admin=create_Accueil_Admin();
+    gtk_widget_show(Acceuil_Admin);
 
 }
 
