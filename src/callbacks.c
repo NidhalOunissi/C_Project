@@ -13,10 +13,15 @@
 Utilisateur utl;
 Utilisateur aux;
 
+int flag_Mod=-1;
+
+int id_modif;
+
 
 void
 on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 {
+    flag_Mod=0;
     
 
     /*GtkWidget * Nom_Utilisateur;
@@ -67,16 +72,35 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 
 
 
-    strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
+    /*strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
     strcpy(utl.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
     strcpy(utl.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
     strcpy(utl.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
     strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
-    strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+    strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));*/
 
     
+    if(flag_Mod==0)
+    {
+        strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
+        strcpy(utl.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
+        strcpy(utl.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
+        strcpy(utl.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
+        strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
+        strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+        ajouterUtilisateur("Utilisateur.txt",utl);
+    }
+    else if (flag_Mod==1)
+    {   strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
+        strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
+        strcpy(aux.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
+        strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
+        strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
+        strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+        modifierUtilisateur("Utilisateur.txt",id_modif,aux,utl);
+        flag_Mod=0;
+    }
 
-    ajouterUtilisateur("Utilisateur.txt",utl);
 
 
 
@@ -145,7 +169,13 @@ on_Genre_Femme_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-        utl.genre=1;
+    {
+        if(flag_Mod==0)
+            utl.genre=1;
+        else if(flag_Mod==1)
+            aux.genre=1;
+    }
+
 
 }
 
@@ -155,7 +185,12 @@ on_Genre_Homme_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-        utl.genre=2;
+    {
+        if(flag_Mod==0)
+            utl.genre=2;
+        else if(flag_Mod==1)
+            aux.genre=2;
+    }
 
 }
 
@@ -165,7 +200,12 @@ on_Utl_Tunisie_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-        utl.nationalite=1;
+    {
+        if(flag_Mod==0)
+            utl.nationalite=1;
+        else if(flag_Mod==1)
+            aux.nationalite=1;
+    }
 
 }
 
@@ -175,7 +215,12 @@ on_Utl_Etranger_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-        utl.nationalite=2;
+    {
+        if(flag_Mod==0)
+            utl.nationalite=2;
+        else if(flag_Mod==1)
+            aux.nationalite=2;
+    }
 
 }
 
@@ -185,7 +230,12 @@ on_AdminCmb_toggled                    (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(togglebutton))
-        utl.role[0]=1;
+    {
+        if(flag_Mod==0)
+            utl.role[0]=1;
+        else if(flag_Mod==1)
+            aux.role[0]=1;
+    }
 
 }
 
@@ -195,7 +245,12 @@ on_AgentBureauCmb_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(togglebutton))
-        utl.role[1]=1;
+    {
+        if(flag_Mod==0)
+            utl.role[1]=1;
+        else if(flag_Mod==1)
+            aux.role[1]=1;
+    }
 
 }
 
@@ -205,7 +260,12 @@ on_ElecteurCmb_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(togglebutton))
-        utl.role[2]=1;
+    {
+        if(flag_Mod==0)
+            utl.role[2]=1;
+        else if(flag_Mod==1)
+            aux.role[2]=1;
+    }
 
 }
 
@@ -215,7 +275,12 @@ on_ObservateurCmb_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
     if(gtk_toggle_button_get_active(togglebutton))
-        utl.role[3]=1;
+    {
+        if(flag_Mod==0)
+            utl.role[3]=1;
+        else if(flag_Mod==1)
+            aux.role[3]=1;
+    }
 
 }
 
@@ -275,7 +340,10 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
                                         gpointer         user_data)
 {
 
-    int id;
+    flag_Mod=1;
+
+
+    
     char convINT [30];
 
     GtkWidget * Id_mod;
@@ -285,16 +353,18 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
 
     PageNum = gtk_notebook_get_current_page(GTK_NOTEBOOK(Notebook));
 
-    
-
 
     Id_mod=lookup_widget(button,"ID_Modif");
     Notebook=lookup_widget(button,"notebook1");
     strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
 
-    id = atoi(convINT);
+    id_modif = atoi(convINT);
     gtk_notebook_prev_page(Notebook);
     gtk_notebook_prev_page(Notebook);
+
+    GtkWidget * Nom_Aux;
+    GtkWidget * Prenom_Aux; 
+
 
 
 
