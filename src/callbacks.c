@@ -279,19 +279,26 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     char convINT [30];
 
     GtkWidget * Id_mod;
-    GtkWidget * Notebook1;
+    GtkWidget * Notebook;
+
+    gint PageNum;
+
+    PageNum = gtk_notebook_get_current_page(GTK_NOTEBOOK(Notebook));
 
     
 
 
     Id_mod=lookup_widget(button,"ID_Modif");
+    Notebook=lookup_widget(button,"notebook1");
     strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
 
     id = atoi(convINT);
+    gtk_notebook_prev_page(Notebook);
+    gtk_notebook_prev_page(Notebook);
 
 
 
-    modifierUtilisateur("Utilisateur.txt",id,aux,utl);
+    //modifierUtilisateur("Utilisateur.txt",id,aux,utl);
 
 
 
