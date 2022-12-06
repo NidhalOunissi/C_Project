@@ -137,6 +137,12 @@ int VerifierConnexion (char * filename, Credentials c, int i)
     FILE * f=fopen(filename, "r");
     if(f!=NULL)
     {
+
+                //c.Idt_Role==choix)
+                //strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(1)
+
+        while (Verif==-1 && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
+        {
                 switch (i)
                 {
                 case 0:
@@ -155,12 +161,8 @@ int VerifierConnexion (char * filename, Credentials c, int i)
                 choix=t.role[3];
                 break;
                 }
-                //c.Idt_Role==choix)
-                //strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(1)
-
-        while (Verif==-1 && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
-        {
-            if(1)
+                
+            if(strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(c.Idt_Role==choix))
                 Verif=1;
         }
     }

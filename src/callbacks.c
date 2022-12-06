@@ -409,9 +409,10 @@ on_Btn_Connecter_clicked               (GtkButton       *button,
                 gtk_widget_show(Accueil_Admin);*/
                 //Test w barra
 
+    //VerifierConnexion("Utilisateur.txt",c,i)
 
     while (VerifierConnexion("Utilisateur.txt",c,i))
-        {
+       {
 
             switch (i)
             {
@@ -421,6 +422,7 @@ on_Btn_Connecter_clicked               (GtkButton       *button,
                 Accueil_Admin=create_Accueil_Admin();
                 gtk_widget_show(Accueil_Admin);
                 break;
+                
 
             case 1:
                 Identification=lookup_widget(button,"Identification");
@@ -461,6 +463,8 @@ on_R_Admin_toggled                     (GtkToggleButton *togglebutton,
         c.Idt_Role=1;
         i=0;
     }
+    else 
+        c.Idt_Role=0;
 
 }
 
@@ -469,11 +473,14 @@ void
 on_R_Observateur_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-        if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
     {
         c.Idt_Role=1;
         i=3;
     }
+    else
+        c.Idt_Role=0;
+
 
 }
 
@@ -500,6 +507,8 @@ on_R_Agent_Bureau_toggled              (GtkToggleButton *togglebutton,
         c.Idt_Role=1;
         i=1;
     }
+    else 
+        c.Idt_Role=0;
 
 }
 
