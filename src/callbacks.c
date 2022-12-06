@@ -12,6 +12,8 @@
 
 Utilisateur utl;
 Utilisateur aux;
+Credentials c;
+int i;
 
 int flag_Mod=-1;
 
@@ -97,7 +99,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
         strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
         strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
         strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
-        modifierUtilisateur("Utilisateur.txt",id_modif,aux,utl);
+        modifierUtilisateur("Utilisateur.txt",id_modif,aux);
         flag_Mod=0;
     }
 
@@ -371,6 +373,133 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     //modifierUtilisateur("Utilisateur.txt",id,aux,utl);
 
 
+
+}
+
+
+void
+on_Btn_Connecter_clicked               (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    GtkWidget * Ident;
+    GtkWidget * MotDePasse;
+
+    GtkWidget * Accueil_Admin;
+    GtkWidget * Acceuil_Agent_Bureau;
+    GtkWidget * Acceuil_obs;
+    GtkWidget * Acceuil_Electeur;
+
+    GtkWidget * Identification;
+
+    Identification=lookup_widget(button,"Identification");
+
+
+    Ident=lookup_widget(button,"id_ID");
+    MotDePasse=lookup_widget(button,"id_Mdp");
+
+
+    strcpy(c.Idt_Id,gtk_entry_get_text(GTK_ENTRY(Ident)));
+    strcpy(c.Idt_Mdp,gtk_entry_get_text(GTK_ENTRY(MotDePasse)));
+
+                //TEst w barra 
+                /*Identification=lookup_widget(button,"Identification");
+                gtk_widget_hide(Identification);
+                Accueil_Admin=create_Accueil_Admin();
+                gtk_widget_show(Accueil_Admin);*/
+                //Test w barra
+
+
+    while (VerifierConnexion("Utilisateur.txt",c,i))
+        {
+
+            switch (i)
+            {
+            case 0:
+                Identification=lookup_widget(button,"Identification");
+                gtk_widget_hide(Identification);
+                Accueil_Admin=create_Accueil_Admin();
+                gtk_widget_show(Accueil_Admin);
+                break;
+
+            case 1:
+                Identification=lookup_widget(button,"Identification");
+                gtk_widget_hide(Identification);
+                Acceuil_Agent_Bureau=create_Accueil_Agent_Bureau();
+                gtk_widget_show(Acceuil_Agent_Bureau);
+                break;
+            
+            case 2:
+                Identification=lookup_widget(button,"Identification");
+                gtk_widget_hide(Identification);
+                Acceuil_Electeur=create_Accueil_Electeur();
+                gtk_widget_show(Acceuil_Electeur);
+                break;
+            
+            case 3:
+                Identification=lookup_widget(button,"Identification");
+                gtk_widget_hide(Identification);
+                Acceuil_obs=create_Accueil_Obs();
+                gtk_widget_show(Acceuil_obs);
+                break;
+
+            }
+        }
+
+        
+
+
+}
+
+
+void
+on_R_Admin_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    {
+        c.Idt_Role=1;
+        i=0;
+    }
+
+}
+
+
+void
+on_R_Observateur_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+        if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    {
+        c.Idt_Role=1;
+        i=3;
+    }
+
+}
+
+
+void
+on_R_Electeur_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+        if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    {
+        c.Idt_Role=1;
+        i=2;
+    }
+
+}
+
+
+void
+on_R_Agent_Bureau_toggled              (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    {
+        c.Idt_Role=1;
+        i=1;
+    }
 
 }
 

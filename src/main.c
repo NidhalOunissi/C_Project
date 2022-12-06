@@ -49,11 +49,11 @@ main (int argc, char *argv[])
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  GestionUtilisateur = create_GestionUtilisateur ();
-  gtk_widget_show (GestionUtilisateur);
-  /*Identification = create_Identification ();
+  /*GestionUtilisateur = create_GestionUtilisateur ();
+  gtk_widget_show (GestionUtilisateur);*/
+  Identification = create_Identification ();
   gtk_widget_show (Identification);
-  Gestion_des_observateurs = create_Gestion_des_observateurs ();
+  /*Gestion_des_observateurs = create_Gestion_des_observateurs ();
   gtk_widget_show (Gestion_des_observateurs);
   Accueil_Admin = create_Accueil_Admin ();
   gtk_widget_show (Accueil_Admin);

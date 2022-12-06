@@ -77,3 +77,23 @@ on_GestionUtilisateur_Btn_clicked      (GtkButton       *button,
 void
 on_Modifier_Utilisateur_clicked        (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_Btn_Connecter_clicked               (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_R_Admin_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_R_Observateur_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_R_Electeur_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_R_Agent_Bureau_toggled              (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);

@@ -2008,7 +2008,7 @@ Arrondissement 6</property>
 		  <property name="visible">True</property>
 
 		  <child>
-		    <widget class="GtkEntry" id="entry9">
+		    <widget class="GtkEntry" id="id_ID">
 		      <property name="width_request">160</property>
 		      <property name="height_request">27</property>
 		      <property name="visible">True</property>
@@ -2028,7 +2028,7 @@ Arrondissement 6</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkEntry" id="entry10">
+		    <widget class="GtkEntry" id="id_Mdp">
 		      <property name="width_request">160</property>
 		      <property name="height_request">27</property>
 		      <property name="visible">True</property>
@@ -2100,6 +2100,32 @@ Arrondissement 6</property>
 		  </child>
 
 		  <child>
+		    <widget class="GtkLabel" id="ChoixRole">
+		      <property name="width_request">100</property>
+		      <property name="height_request">17</property>
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">Choix du rôle</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="x">24</property>
+		      <property name="y">32</property>
+		    </packing>
+		  </child>
+
+		  <child>
 		    <widget class="GtkButton" id="Btn_Connecter">
 		      <property name="width_request">100</property>
 		      <property name="height_request">29</property>
@@ -2107,6 +2133,7 @@ Arrondissement 6</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
 		      <property name="focus_on_click">True</property>
+		      <signal name="clicked" handler="on_Btn_Connecter_clicked" last_modification_time="Tue, 06 Dec 2022 13:07:31 GMT"/>
 
 		      <child>
 			<widget class="GtkAlignment" id="alignment13">
@@ -2179,52 +2206,6 @@ Arrondissement 6</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkRadioButton" id="R_Observateur">
-		      <property name="width_request">116</property>
-		      <property name="height_request">24</property>
-		      <property name="visible">True</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Observateur</property>
-		      <property name="use_underline">True</property>
-		      <property name="relief">GTK_RELIEF_NORMAL</property>
-		      <property name="focus_on_click">True</property>
-		      <property name="active">False</property>
-		      <property name="inconsistent">False</property>
-		      <property name="draw_indicator">True</property>
-		    </widget>
-		    <packing>
-		      <property name="x">336</property>
-		      <property name="y">32</property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkLabel" id="ChoixRole">
-		      <property name="width_request">100</property>
-		      <property name="height_request">17</property>
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Choix du rôle</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		      <property name="width_chars">-1</property>
-		      <property name="single_line_mode">False</property>
-		      <property name="angle">0</property>
-		    </widget>
-		    <packing>
-		      <property name="x">24</property>
-		      <property name="y">32</property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkRadioButton" id="R_Admin">
 		      <property name="width_request">116</property>
 		      <property name="height_request">24</property>
@@ -2237,7 +2218,7 @@ Arrondissement 6</property>
 		      <property name="active">False</property>
 		      <property name="inconsistent">False</property>
 		      <property name="draw_indicator">True</property>
-		      <property name="group">R_Observateur</property>
+		      <signal name="toggled" handler="on_R_Admin_toggled" last_modification_time="Tue, 06 Dec 2022 13:09:03 GMT"/>
 		    </widget>
 		    <packing>
 		      <property name="x">160</property>
@@ -2246,23 +2227,24 @@ Arrondissement 6</property>
 		  </child>
 
 		  <child>
-		    <widget class="GtkRadioButton" id="R_Agent_Bureau">
-		      <property name="width_request">150</property>
+		    <widget class="GtkRadioButton" id="R_Observateur">
+		      <property name="width_request">116</property>
 		      <property name="height_request">24</property>
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">Agent  de bureau</property>
+		      <property name="label" translatable="yes">Observateur</property>
 		      <property name="use_underline">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
 		      <property name="focus_on_click">True</property>
 		      <property name="active">False</property>
 		      <property name="inconsistent">False</property>
 		      <property name="draw_indicator">True</property>
-		      <property name="group">R_Observateur</property>
+		      <property name="group">R_Admin</property>
+		      <signal name="toggled" handler="on_R_Observateur_toggled" last_modification_time="Tue, 06 Dec 2022 13:09:11 GMT"/>
 		    </widget>
 		    <packing>
-		      <property name="x">160</property>
-		      <property name="y">64</property>
+		      <property name="x">336</property>
+		      <property name="y">32</property>
 		    </packing>
 		  </child>
 
@@ -2279,10 +2261,33 @@ Arrondissement 6</property>
 		      <property name="active">False</property>
 		      <property name="inconsistent">False</property>
 		      <property name="draw_indicator">True</property>
-		      <property name="group">R_Observateur</property>
+		      <property name="group">R_Admin</property>
+		      <signal name="toggled" handler="on_R_Electeur_toggled" last_modification_time="Tue, 06 Dec 2022 13:43:41 GMT"/>
 		    </widget>
 		    <packing>
 		      <property name="x">336</property>
+		      <property name="y">64</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkRadioButton" id="R_Agent_Bureau">
+		      <property name="width_request">150</property>
+		      <property name="height_request">24</property>
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="label" translatable="yes">Agent  de bureau</property>
+		      <property name="use_underline">True</property>
+		      <property name="relief">GTK_RELIEF_NORMAL</property>
+		      <property name="focus_on_click">True</property>
+		      <property name="active">False</property>
+		      <property name="inconsistent">False</property>
+		      <property name="draw_indicator">True</property>
+		      <property name="group">R_Admin</property>
+		      <signal name="toggled" handler="on_R_Agent_Bureau_toggled" last_modification_time="Tue, 06 Dec 2022 13:43:50 GMT"/>
+		    </widget>
+		    <packing>
+		      <property name="x">160</property>
 		      <property name="y">64</property>
 		    </packing>
 		  </child>

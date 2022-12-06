@@ -53,9 +53,10 @@ int ajouterUtilisateur (char * filename, Utilisateur p)
     }
     else return 0;
 }
-int modifierUtilisateur( char * filename, int id, Utilisateur aux, Utilisateur p )
+int modifierUtilisateur( char * filename, int id, Utilisateur aux)
 {
     int tr=0;
+    Utilisateur p;
     FILE * f=fopen(filename, "r");
     FILE * f2=fopen("nouv.txt", "w");
     if(f!=NULL && f2!=NULL)
@@ -124,4 +125,47 @@ int chercherUtilisateur(char * filename, int id)
     if(tr==0)
         return 0;
 
+}
+
+
+int VerifierConnexion (char * filename, Credentials c, int i)
+{
+    Utilisateur t;
+    int Verif=-1;
+    int choix;
+  
+    FILE * f=fopen(filename, "r");
+    if(f!=NULL)
+    {
+                switch (i)
+                {
+                case 0:
+                choix=t.role[0];
+                break;
+    
+                case 1:
+                choix=t.role[1];
+                break;
+    
+                case 2:
+                choix=t.role[2];
+                break;
+
+                case 3:
+                choix=t.role[3];
+                break;
+                }
+                //c.Idt_Role==choix)
+                //strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(1)
+
+        while (Verif==-1 && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
+        {
+            if(1)
+                Verif=1;
+        }
+    }
+
+    fclose(f);
+
+    return Verif;
 }
