@@ -741,26 +741,6 @@
 		      </child>
 
 		      <child>
-			<widget class="GtkComboBox" id="combobox1">
-			  <property name="width_request">200</property>
-			  <property name="height_request">31</property>
-			  <property name="visible">True</property>
-			  <property name="items" translatable="yes">Arrondissement 1
-Arrondissement 2
-Arrondissement 3
-Arrondissement 4
-Arrondissement 5
-Arrondissement 6</property>
-			  <property name="add_tearoffs">True</property>
-			  <property name="focus_on_click">True</property>
-			</widget>
-			<packing>
-			  <property name="x">216</property>
-			  <property name="y">272</property>
-			</packing>
-		      </child>
-
-		      <child>
 			<widget class="GtkLabel" id="Poste_Lbl">
 			  <property name="width_request">41</property>
 			  <property name="height_request">17</property>
@@ -922,6 +902,26 @@ Arrondissement 6</property>
 			<packing>
 			  <property name="x">376</property>
 			  <property name="y">232</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkComboBox" id="combobox1">
+			  <property name="width_request">200</property>
+			  <property name="height_request">31</property>
+			  <property name="visible">True</property>
+			  <property name="items" translatable="yes">Arrondissement 1
+Arrondissement 2
+Arrondissement 3
+Arrondissement 4
+Arrondissement 5
+Arrondissement 6</property>
+			  <property name="add_tearoffs">True</property>
+			  <property name="focus_on_click">True</property>
+			</widget>
+			<packing>
+			  <property name="x">216</property>
+			  <property name="y">272</property>
 			</packing>
 		      </child>
 		    </widget>
@@ -1717,7 +1717,7 @@ Arrondissement 6</property>
 		      <property name="visible">True</property>
 
 		      <child>
-			<widget class="GtkEntry" id="entry8">
+			<widget class="GtkEntry" id="entrySupp">
 			  <property name="width_request">250</property>
 			  <property name="height_request">27</property>
 			  <property name="visible">True</property>
@@ -1733,26 +1733,6 @@ Arrondissement 6</property>
 			<packing>
 			  <property name="x">408</property>
 			  <property name="y">72</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkCheckButton" id="V_Supprimer_Utilisateur">
-			  <property name="width_request">180</property>
-			  <property name="height_request">24</property>
-			  <property name="visible">True</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Valider la suppression</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			  <property name="focus_on_click">True</property>
-			  <property name="active">False</property>
-			  <property name="inconsistent">False</property>
-			  <property name="draw_indicator">True</property>
-			</widget>
-			<packing>
-			  <property name="x">560</property>
-			  <property name="y">152</property>
 			</packing>
 		      </child>
 
@@ -1790,6 +1770,7 @@ Arrondissement 6</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
+			  <signal name="clicked" handler="on_Supprimer_Utilisateur_clicked" last_modification_time="Thu, 08 Dec 2022 13:13:04 GMT"/>
 
 			  <child>
 			    <widget class="GtkAlignment" id="alignment11">
@@ -1860,6 +1841,27 @@ Arrondissement 6</property>
 			  <property name="y">144</property>
 			</packing>
 		      </child>
+
+		      <child>
+			<widget class="GtkCheckButton" id="V_Supprimer_Utilisateur">
+			  <property name="width_request">180</property>
+			  <property name="height_request">24</property>
+			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
+			  <property name="label" translatable="yes">Valider la suppression</property>
+			  <property name="use_underline">True</property>
+			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
+			  <property name="active">False</property>
+			  <property name="inconsistent">False</property>
+			  <property name="draw_indicator">True</property>
+			  <signal name="toggled" handler="on_V_Supprimer_Utilisateur_toggled" last_modification_time="Thu, 08 Dec 2022 13:13:52 GMT"/>
+			</widget>
+			<packing>
+			  <property name="x">560</property>
+			  <property name="y">152</property>
+			</packing>
+		      </child>
 		    </widget>
 		  </child>
 		</widget>
@@ -1904,6 +1906,7 @@ Arrondissement 6</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
+	      <signal name="clicked" handler="on_Btn_MenuPrincipal2_clicked" last_modification_time="Thu, 08 Dec 2022 13:16:06 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="x">1056</property>
@@ -1921,6 +1924,7 @@ Arrondissement 6</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
+	      <signal name="clicked" handler="on_Btn_Exit3_clicked" last_modification_time="Thu, 08 Dec 2022 13:16:17 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="x">1192</property>

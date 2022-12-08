@@ -128,14 +128,14 @@ create_GestionUtilisateur (void)
   GtkWidget *frame5;
   GtkWidget *alignment5;
   GtkWidget *fixed7;
-  GtkWidget *entry8;
-  GtkWidget *V_Supprimer_Utilisateur;
+  GtkWidget *entrySupp;
   GtkWidget *ID_Utilisateur_Lbl3;
   GtkWidget *Supprimer_Utilisateur;
   GtkWidget *alignment11;
   GtkWidget *hbox5;
   GtkWidget *image4;
   GtkWidget *label37;
+  GtkWidget *V_Supprimer_Utilisateur;
   GtkWidget *Supprimer_Utilisateur_Lbl;
   GtkWidget *Btn_MenuPrincipal2;
   GtkWidget *Btn_Exit3;
@@ -631,16 +631,11 @@ create_GestionUtilisateur (void)
   gtk_widget_show (fixed7);
   gtk_container_add (GTK_CONTAINER (alignment5), fixed7);
 
-  entry8 = gtk_entry_new ();
-  gtk_widget_show (entry8);
-  gtk_fixed_put (GTK_FIXED (fixed7), entry8, 408, 72);
-  gtk_widget_set_size_request (entry8, 250, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry8), 8226);
-
-  V_Supprimer_Utilisateur = gtk_check_button_new_with_mnemonic (_("Valider la suppression"));
-  gtk_widget_show (V_Supprimer_Utilisateur);
-  gtk_fixed_put (GTK_FIXED (fixed7), V_Supprimer_Utilisateur, 560, 152);
-  gtk_widget_set_size_request (V_Supprimer_Utilisateur, 180, 24);
+  entrySupp = gtk_entry_new ();
+  gtk_widget_show (entrySupp);
+  gtk_fixed_put (GTK_FIXED (fixed7), entrySupp, 408, 72);
+  gtk_widget_set_size_request (entrySupp, 250, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entrySupp), 8226);
 
   ID_Utilisateur_Lbl3 = gtk_label_new (_("ID utilisateur"));
   gtk_widget_show (ID_Utilisateur_Lbl3);
@@ -667,6 +662,11 @@ create_GestionUtilisateur (void)
   label37 = gtk_label_new_with_mnemonic (_("SUPPRIMER"));
   gtk_widget_show (label37);
   gtk_box_pack_start (GTK_BOX (hbox5), label37, FALSE, FALSE, 0);
+
+  V_Supprimer_Utilisateur = gtk_check_button_new_with_mnemonic (_("Valider la suppression"));
+  gtk_widget_show (V_Supprimer_Utilisateur);
+  gtk_fixed_put (GTK_FIXED (fixed7), V_Supprimer_Utilisateur, 560, 152);
+  gtk_widget_set_size_request (V_Supprimer_Utilisateur, 180, 24);
 
   Supprimer_Utilisateur_Lbl = gtk_label_new (_("<b>Supprimer Utilisateur</b>"));
   gtk_widget_show (Supprimer_Utilisateur_Lbl);
@@ -738,6 +738,18 @@ create_GestionUtilisateur (void)
                     NULL);
   g_signal_connect ((gpointer) Modifier_Utilisateur, "clicked",
                     G_CALLBACK (on_Modifier_Utilisateur_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Supprimer_Utilisateur, "clicked",
+                    G_CALLBACK (on_Supprimer_Utilisateur_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) V_Supprimer_Utilisateur, "toggled",
+                    G_CALLBACK (on_V_Supprimer_Utilisateur_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) Btn_MenuPrincipal2, "clicked",
+                    G_CALLBACK (on_Btn_MenuPrincipal2_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Btn_Exit3, "clicked",
+                    G_CALLBACK (on_Btn_Exit3_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -837,14 +849,14 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame5, "frame5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment5, "alignment5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed7, "fixed7");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, entry8, "entry8");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, V_Supprimer_Utilisateur, "V_Supprimer_Utilisateur");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, entrySupp, "entrySupp");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ID_Utilisateur_Lbl3, "ID_Utilisateur_Lbl3");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Supprimer_Utilisateur, "Supprimer_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment11, "alignment11");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox5, "hbox5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image4, "image4");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label37, "label37");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, V_Supprimer_Utilisateur, "V_Supprimer_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Supprimer_Utilisateur_Lbl, "Supprimer_Utilisateur_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_MenuPrincipal2, "Btn_MenuPrincipal2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit3, "Btn_Exit3");

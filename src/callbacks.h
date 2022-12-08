@@ -109,3 +109,19 @@ on_Utl_Etranger_group_changed          (GtkRadioButton  *radiobutton,
 void
 on_Utl_Tunisie_group_changed           (GtkRadioButton  *radiobutton,
                                         gpointer         user_data);
+
+void
+on_Supprimer_Utilisateur_clicked       (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_V_Supprimer_Utilisateur_toggled     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_Btn_MenuPrincipal2_clicked          (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Exit3_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
