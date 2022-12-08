@@ -131,7 +131,7 @@ int chercherUtilisateur(char * filename, int id)
 int VerifierConnexion (char * filename, Credentials c, int i)
 {
     Utilisateur t;
-    int Verif=-1;
+    int Verif=0;
     int choix;
   
     FILE * f=fopen(filename, "r");
@@ -141,7 +141,7 @@ int VerifierConnexion (char * filename, Credentials c, int i)
                 //c.Idt_Role==choix)
                 //strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(1)
 
-        while (Verif==-1 && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
+        while ((Verif==0) && (fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
         {
                 switch (i)
                 {
@@ -161,6 +161,9 @@ int VerifierConnexion (char * filename, Credentials c, int i)
                 choix=t.role[3];
                 break;
                 }
+
+
+
                 
             if((strcmp(c.Idt_Id,t.ID)==0)&&(strcmp(c.Idt_Mdp,t.mdp)==0)&&(c.Idt_Role==choix))
                 Verif=1;

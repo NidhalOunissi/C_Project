@@ -12,6 +12,19 @@
 #include "interface.h"
 #include "support.h"
 #include "FonctionsPC.h"
+#include <string.h>
+
+
+/*Utilisateur utl;
+Utilisateur aux;
+Credentials c;
+int i;
+
+int flag_Mod=-1;
+
+int id_modif;*/
+
+
 
 int
 main (int argc, char *argv[])

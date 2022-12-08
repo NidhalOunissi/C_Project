@@ -8,6 +8,7 @@
 #include "interface.h"
 #include "support.h"
 #include "FonctionsPC.h"
+#include <string.h>
 
 
 Utilisateur utl;
@@ -352,9 +353,9 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     GtkWidget * Id_mod;
     GtkWidget * Notebook;
 
-    gint PageNum;
+    //gint PageNum;
 
-    PageNum = gtk_notebook_get_current_page(GTK_NOTEBOOK(Notebook));
+    //PageNum = gtk_notebook_get_current_page(GTK_NOTEBOOK(Notebook));
 
 
     Id_mod=lookup_widget(button,"ID_Modif");
@@ -414,10 +415,8 @@ on_Btn_Connecter_clicked               (GtkButton       *button,
                 //Test w barra
 
     verif=VerifierConnexion("Utilisateur.txt",c,i);
-
     if(verif)
        {
-
             switch (i)
             {
             case 0:
@@ -498,6 +497,8 @@ on_R_Electeur_toggled                  (GtkToggleButton *togglebutton,
         c.Idt_Role=1;
         i=2;
     }
+    else 
+        c.Idt_Role=0;
 
 }
 
