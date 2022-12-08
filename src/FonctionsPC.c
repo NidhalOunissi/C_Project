@@ -162,7 +162,7 @@ int VerifierConnexion (char * filename, Credentials c, int i)
                 break;
                 }
                 
-            if(strcmp(c.Idt_Id,t.ID)&&strcmp(c.Idt_Mdp,t.mdp)&&(c.Idt_Role==choix))
+            if((strcmp(c.Idt_Id,t.ID)==0)&&(strcmp(c.Idt_Mdp,t.mdp)==0)&&(c.Idt_Role==choix))
                 Verif=1;
         }
     }

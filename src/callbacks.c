@@ -167,10 +167,11 @@ on_Btn_MenuPrincipal_clicked           (GtkButton       *button,
 
 
 void
-on_Genre_Femme_toggled                 (GtkToggleButton *togglebutton,
+on_Genre_Femme_toggled                 (GtkRadioButton  *radiobutton,
                                         gpointer         user_data)
+
 {
-    if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+    if(gtk_toggle_button_get_active(GTK_RADIO_BUTTON(radiobutton)))
     {
         if(flag_Mod==0)
             utl.genre=1;
@@ -364,6 +365,8 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     gtk_notebook_prev_page(Notebook);
     gtk_notebook_prev_page(Notebook);
 
+    
+
     GtkWidget * Nom_Aux;
     GtkWidget * Prenom_Aux; 
 
@@ -381,6 +384,7 @@ void
 on_Btn_Connecter_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
+    int verif=0;
 
     GtkWidget * Ident;
     GtkWidget * MotDePasse;
@@ -409,9 +413,9 @@ on_Btn_Connecter_clicked               (GtkButton       *button,
                 gtk_widget_show(Accueil_Admin);*/
                 //Test w barra
 
-    //VerifierConnexion("Utilisateur.txt",c,i)
+    verif=VerifierConnexion("Utilisateur.txt",c,i);
 
-    while (VerifierConnexion("Utilisateur.txt",c,i))
+    if(verif)
        {
 
             switch (i)

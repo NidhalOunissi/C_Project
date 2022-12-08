@@ -11,6 +11,7 @@
 
 #include "interface.h"
 #include "support.h"
+#include "FonctionsPC.h"
 
 int
 main (int argc, char *argv[])

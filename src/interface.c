@@ -50,16 +50,17 @@ create_GestionUtilisateur (void)
   GtkWidget *Nom_Utilisateur;
   GtkWidget *Prenom_Utilisateur;
   GtkWidget *calendar1;
-  GtkWidget *Genre_Femme;
-  GSList *Genre_Femme_group = NULL;
-  GtkWidget *Genre_Homme;
-  GtkWidget *Utl_Tunisie;
-  GtkWidget *Utl_Etranger;
   GtkWidget *Nom_Lbl;
   GtkWidget *Prenom_Lbl;
   GtkWidget *Genre_Lbl;
   GtkWidget *DateNaissance_Lbl;
   GtkWidget *Nationalite_Lbl;
+  GtkWidget *Genre_Homme;
+  GSList *Genre_Homme_group = NULL;
+  GtkWidget *Genre_Femme;
+  GtkWidget *Utl_Tunisie;
+  GSList *Utl_Tunisie_group = NULL;
+  GtkWidget *Utl_Etranger;
   GtkWidget *L_InfoGen;
   GtkWidget *frame2;
   GtkWidget *alignment2;
@@ -70,14 +71,14 @@ create_GestionUtilisateur (void)
   GtkWidget *ElecteurCmb;
   GtkWidget *ObservateurCmb;
   GtkWidget *combobox1;
+  GtkWidget *Poste_Lbl;
+  GtkWidget *Appartenance_Lbl;
+  GtkWidget *Arrondissement_Lbl;
   GtkWidget *Obs_Presse;
   GSList *Obs_Presse_group = NULL;
   GtkWidget *Obs_PartiePolitique;
   GtkWidget *Obs_SV;
   GtkWidget *Obs_Autre;
-  GtkWidget *Poste_Lbl;
-  GtkWidget *Appartenance_Lbl;
-  GtkWidget *Arrondissement_Lbl;
   GtkWidget *Poste;
   GtkWidget *Annuler_Utilisateur;
   GtkWidget *alignment9;
@@ -251,34 +252,6 @@ create_GestionUtilisateur (void)
                                 GTK_CALENDAR_SHOW_HEADING
                                 | GTK_CALENDAR_SHOW_DAY_NAMES);
 
-  Genre_Femme = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
-  gtk_widget_show (Genre_Femme);
-  gtk_fixed_put (GTK_FIXED (InfoGen), Genre_Femme, 240, 128);
-  gtk_widget_set_size_request (Genre_Femme, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Genre_Femme), Genre_Femme_group);
-  Genre_Femme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Genre_Femme));
-
-  Genre_Homme = gtk_radio_button_new_with_mnemonic (NULL, _("Homme"));
-  gtk_widget_show (Genre_Homme);
-  gtk_fixed_put (GTK_FIXED (InfoGen), Genre_Homme, 400, 128);
-  gtk_widget_set_size_request (Genre_Homme, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Genre_Homme), Genre_Femme_group);
-  Genre_Femme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Genre_Homme));
-
-  Utl_Tunisie = gtk_radio_button_new_with_mnemonic (NULL, _("Tunisien(ne)"));
-  gtk_widget_show (Utl_Tunisie);
-  gtk_fixed_put (GTK_FIXED (InfoGen), Utl_Tunisie, 224, 408);
-  gtk_widget_set_size_request (Utl_Tunisie, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Utl_Tunisie), Genre_Femme_group);
-  Genre_Femme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Utl_Tunisie));
-
-  Utl_Etranger = gtk_radio_button_new_with_mnemonic (NULL, _("Etranger(e)"));
-  gtk_widget_show (Utl_Etranger);
-  gtk_fixed_put (GTK_FIXED (InfoGen), Utl_Etranger, 408, 408);
-  gtk_widget_set_size_request (Utl_Etranger, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Utl_Etranger), Genre_Femme_group);
-  Genre_Femme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Utl_Etranger));
-
   Nom_Lbl = gtk_label_new (_("Nom"));
   gtk_widget_show (Nom_Lbl);
   gtk_fixed_put (GTK_FIXED (InfoGen), Nom_Lbl, 48, 40);
@@ -303,6 +276,34 @@ create_GestionUtilisateur (void)
   gtk_widget_show (Nationalite_Lbl);
   gtk_fixed_put (GTK_FIXED (InfoGen), Nationalite_Lbl, 56, 416);
   gtk_widget_set_size_request (Nationalite_Lbl, 80, 17);
+
+  Genre_Homme = gtk_radio_button_new_with_mnemonic (NULL, _("Homme"));
+  gtk_widget_show (Genre_Homme);
+  gtk_fixed_put (GTK_FIXED (InfoGen), Genre_Homme, 400, 128);
+  gtk_widget_set_size_request (Genre_Homme, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Genre_Homme), Genre_Homme_group);
+  Genre_Homme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Genre_Homme));
+
+  Genre_Femme = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
+  gtk_widget_show (Genre_Femme);
+  gtk_fixed_put (GTK_FIXED (InfoGen), Genre_Femme, 240, 128);
+  gtk_widget_set_size_request (Genre_Femme, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Genre_Femme), Genre_Homme_group);
+  Genre_Homme_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Genre_Femme));
+
+  Utl_Tunisie = gtk_radio_button_new_with_mnemonic (NULL, _("Tunisien(ne)"));
+  gtk_widget_show (Utl_Tunisie);
+  gtk_fixed_put (GTK_FIXED (InfoGen), Utl_Tunisie, 224, 408);
+  gtk_widget_set_size_request (Utl_Tunisie, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Utl_Tunisie), Utl_Tunisie_group);
+  Utl_Tunisie_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Utl_Tunisie));
+
+  Utl_Etranger = gtk_radio_button_new_with_mnemonic (NULL, _("Etranger(e)"));
+  gtk_widget_show (Utl_Etranger);
+  gtk_fixed_put (GTK_FIXED (InfoGen), Utl_Etranger, 408, 408);
+  gtk_widget_set_size_request (Utl_Etranger, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (Utl_Etranger), Utl_Tunisie_group);
+  Utl_Tunisie_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Utl_Etranger));
 
   L_InfoGen = gtk_label_new (_("<b>Informations G\303\251n\303\251rales</b>"));
   gtk_widget_show (L_InfoGen);
@@ -361,6 +362,21 @@ create_GestionUtilisateur (void)
   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 6"));
   gtk_combo_box_set_add_tearoffs (GTK_COMBO_BOX (combobox1), TRUE);
 
+  Poste_Lbl = gtk_label_new (_("Poste"));
+  gtk_widget_show (Poste_Lbl);
+  gtk_fixed_put (GTK_FIXED (fixed2), Poste_Lbl, 64, 48);
+  gtk_widget_set_size_request (Poste_Lbl, 41, 17);
+
+  Appartenance_Lbl = gtk_label_new (_("Appartenance"));
+  gtk_widget_show (Appartenance_Lbl);
+  gtk_fixed_put (GTK_FIXED (fixed2), Appartenance_Lbl, 48, 192);
+  gtk_widget_set_size_request (Appartenance_Lbl, 100, 17);
+
+  Arrondissement_Lbl = gtk_label_new (_("Arrondissement"));
+  gtk_widget_show (Arrondissement_Lbl);
+  gtk_fixed_put (GTK_FIXED (fixed2), Arrondissement_Lbl, 48, 280);
+  gtk_widget_set_size_request (Arrondissement_Lbl, 120, 17);
+
   Obs_Presse = gtk_radio_button_new_with_mnemonic (NULL, _("Presse"));
   gtk_widget_show (Obs_Presse);
   gtk_fixed_put (GTK_FIXED (fixed2), Obs_Presse, 216, 184);
@@ -388,21 +404,6 @@ create_GestionUtilisateur (void)
   gtk_widget_set_size_request (Obs_Autre, 116, 24);
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (Obs_Autre), Obs_Presse_group);
   Obs_Presse_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Obs_Autre));
-
-  Poste_Lbl = gtk_label_new (_("Poste"));
-  gtk_widget_show (Poste_Lbl);
-  gtk_fixed_put (GTK_FIXED (fixed2), Poste_Lbl, 64, 48);
-  gtk_widget_set_size_request (Poste_Lbl, 41, 17);
-
-  Appartenance_Lbl = gtk_label_new (_("Appartenance"));
-  gtk_widget_show (Appartenance_Lbl);
-  gtk_fixed_put (GTK_FIXED (fixed2), Appartenance_Lbl, 48, 192);
-  gtk_widget_set_size_request (Appartenance_Lbl, 100, 17);
-
-  Arrondissement_Lbl = gtk_label_new (_("Arrondissement"));
-  gtk_widget_show (Arrondissement_Lbl);
-  gtk_fixed_put (GTK_FIXED (fixed2), Arrondissement_Lbl, 48, 280);
-  gtk_widget_set_size_request (Arrondissement_Lbl, 120, 17);
 
   Poste = gtk_label_new (_("<b>Poste et Arrondissement </b>"));
   gtk_widget_show (Poste);
@@ -687,11 +688,11 @@ create_GestionUtilisateur (void)
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), ModifierSupprimer_Utilasteur);
   gtk_widget_set_size_request (ModifierSupprimer_Utilasteur, 200, -1);
 
-  g_signal_connect ((gpointer) Genre_Femme, "toggled",
-                    G_CALLBACK (on_Genre_Femme_toggled),
-                    NULL);
   g_signal_connect ((gpointer) Genre_Homme, "toggled",
                     G_CALLBACK (on_Genre_Homme_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) Genre_Femme, "toggled",
+                    G_CALLBACK (on_Genre_Femme_toggled),
                     NULL);
   g_signal_connect ((gpointer) Utl_Tunisie, "toggled",
                     G_CALLBACK (on_Utl_Tunisie_toggled),
@@ -761,15 +762,15 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Nom_Utilisateur, "Nom_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Prenom_Utilisateur, "Prenom_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, calendar1, "calendar1");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Genre_Femme, "Genre_Femme");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Genre_Homme, "Genre_Homme");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Utl_Tunisie, "Utl_Tunisie");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Utl_Etranger, "Utl_Etranger");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Nom_Lbl, "Nom_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Prenom_Lbl, "Prenom_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Genre_Lbl, "Genre_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, DateNaissance_Lbl, "DateNaissance_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Nationalite_Lbl, "Nationalite_Lbl");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Genre_Homme, "Genre_Homme");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Genre_Femme, "Genre_Femme");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Utl_Tunisie, "Utl_Tunisie");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Utl_Etranger, "Utl_Etranger");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, L_InfoGen, "L_InfoGen");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame2, "frame2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment2, "alignment2");
@@ -780,13 +781,13 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ElecteurCmb, "ElecteurCmb");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ObservateurCmb, "ObservateurCmb");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, combobox1, "combobox1");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Poste_Lbl, "Poste_Lbl");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Appartenance_Lbl, "Appartenance_Lbl");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Arrondissement_Lbl, "Arrondissement_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_Presse, "Obs_Presse");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_PartiePolitique, "Obs_PartiePolitique");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_SV, "Obs_SV");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_Autre, "Obs_Autre");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Poste_Lbl, "Poste_Lbl");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Appartenance_Lbl, "Appartenance_Lbl");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Arrondissement_Lbl, "Arrondissement_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Poste, "Poste");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Annuler_Utilisateur, "Annuler_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment9, "alignment9");

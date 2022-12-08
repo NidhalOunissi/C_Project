@@ -19,10 +19,6 @@ on_Btn_MenuPrincipal_clicked           (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_Genre_Femme_toggled                 (GtkToggleButton *togglebutton,
-                                        gpointer         user_data);
-
-void
 on_Genre_Homme_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
@@ -96,4 +92,20 @@ on_R_Electeur_toggled                  (GtkToggleButton *togglebutton,
 
 void
 on_R_Agent_Bureau_toggled              (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_Genre_Femme_toggled                 (GtkRadioButton  *radiobutton,
+                                        gpointer         user_data);
+
+void
+on_Genre_Homme_group_changed           (GtkRadioButton  *radiobutton,
+                                        gpointer         user_data);
+
+void
+on_Utl_Etranger_group_changed          (GtkRadioButton  *radiobutton,
+                                        gpointer         user_data);
+
+void
+on_Utl_Tunisie_group_changed           (GtkRadioButton  *radiobutton,
                                         gpointer         user_data);
