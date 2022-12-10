@@ -95,6 +95,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
     strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
     strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));*/
 
+
     
     if(flag_Mod==0)
     {
@@ -134,7 +135,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
         ajouterUtilisateur("Utilisateur.txt",utl);
     }
     else if (flag_Mod==1)
-    {  
+    {   
         strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
         strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
         strcpy(aux.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
@@ -477,6 +478,9 @@ on_Btn_Connecter_clicked               (GtkButton       *button,
     MotDePasse=lookup_widget(button,"id_Mdp");
 
 
+    //gtk_entry_set_visibility(GTK_ENTRY(MotDePasse),FALSE);
+
+
     strcpy(c.Idt_Id,gtk_entry_get_text(GTK_ENTRY(Ident)));
     strcpy(c.Idt_Mdp,gtk_entry_get_text(GTK_ENTRY(MotDePasse)));
 
@@ -662,6 +666,74 @@ on_AfficherUTL_clicked                 (GtkButton       *button,
     treeview=lookup_widget(Affichage,"treeview1");
 
     AfficherUtl(treeview);
+
+}
+
+
+void
+on_GestionElection_clicked             (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * GestionElection;
+    GtkWidget * Acceuil_Admin;
+
+    Acceuil_Admin=lookup_widget(button,"Accueil_Admin");
+    gtk_widget_hide(Acceuil_Admin);
+    GestionElection=create_GestionElection();
+    gtk_widget_show(GestionElection);
+
+}
+
+
+void
+on_Statistique_clicked                 (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * Stat;
+    GtkWidget * Acceuil_Admin;
+
+    Acceuil_Admin=lookup_widget(button,"Accueil_Admin");
+    gtk_widget_hide(Acceuil_Admin);
+    Stat=create_Statistique();
+    gtk_widget_show(Stat);
+}
+
+
+void
+on_GestionBV_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * GestionBV;
+    GtkWidget * Acceuil_Admin;
+
+    Acceuil_Admin=lookup_widget(button,"Accueil_Admin");
+    gtk_widget_hide(Acceuil_Admin);
+    GestionBV=create_GestionBV();
+    gtk_widget_show(GestionBV);
+
+}
+
+
+void
+on_Btn_Deconnexion_clicked             (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * Identif;
+    GtkWidget * Acceuil_Admin;
+
+    Acceuil_Admin=lookup_widget(button,"Accueil_Admin");
+    gtk_widget_hide(Acceuil_Admin);
+    Identif=create_Identification();
+    gtk_widget_show(Identif);
+
+}
+
+
+void
+on_Btn_Exit_clicked                    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    gtk_main_quit();
 
 }
 

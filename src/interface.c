@@ -85,12 +85,12 @@ create_GestionUtilisateur (void)
   GtkWidget *hbox3;
   GtkWidget *image2;
   GtkWidget *label35;
-  GtkWidget *Btn_MenuPrincipal1;
   GtkWidget *Ajout_Utilisateur;
   GtkWidget *alignment8;
   GtkWidget *hbox2;
   GtkWidget *image1;
   GtkWidget *label34;
+  GtkWidget *Btn_MenuPrincipal1;
   GtkWidget *Btn_Exit1;
   GtkWidget *alignment12;
   GtkWidget *hbox6;
@@ -106,13 +106,13 @@ create_GestionUtilisateur (void)
   GtkWidget *image7;
   GtkWidget *label54;
   GtkWidget *Btn_Menu;
-  GtkWidget *Btn_Exit2;
   GtkWidget *AfficherUTL;
   GtkWidget *frame6;
   GtkWidget *alignment6;
   GtkWidget *scrolledwindow1;
   GtkWidget *treeview1;
   GtkWidget *Liste_Utilisateur;
+  GtkWidget *Btn_Exit2;
   GtkWidget *Affichage_Utilisateur;
   GtkWidget *fixed5;
   GtkWidget *frame4;
@@ -131,12 +131,12 @@ create_GestionUtilisateur (void)
   GtkWidget *fixed7;
   GtkWidget *entrySupp;
   GtkWidget *ID_Utilisateur_Lbl3;
+  GtkWidget *V_Supprimer_Utilisateur;
   GtkWidget *Supprimer_Utilisateur;
   GtkWidget *alignment11;
   GtkWidget *hbox5;
   GtkWidget *image4;
   GtkWidget *label37;
-  GtkWidget *V_Supprimer_Utilisateur;
   GtkWidget *Supprimer_Utilisateur_Lbl;
   GtkWidget *Btn_MenuPrincipal2;
   GtkWidget *Btn_Exit3;
@@ -434,11 +434,6 @@ create_GestionUtilisateur (void)
   gtk_box_pack_start (GTK_BOX (hbox3), label35, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (label35), 0.49, 0.5);
 
-  Btn_MenuPrincipal1 = gtk_button_new_with_mnemonic (_("Retour Menu"));
-  gtk_widget_show (Btn_MenuPrincipal1);
-  gtk_fixed_put (GTK_FIXED (fixed1), Btn_MenuPrincipal1, 1040, 752);
-  gtk_widget_set_size_request (Btn_MenuPrincipal1, 100, 100);
-
   Ajout_Utilisateur = gtk_button_new ();
   gtk_widget_show (Ajout_Utilisateur);
   gtk_fixed_put (GTK_FIXED (fixed1), Ajout_Utilisateur, 752, 504);
@@ -460,9 +455,14 @@ create_GestionUtilisateur (void)
   gtk_widget_show (label34);
   gtk_box_pack_start (GTK_BOX (hbox2), label34, FALSE, FALSE, 0);
 
+  Btn_MenuPrincipal1 = gtk_button_new_with_mnemonic (_("Retour Menu"));
+  gtk_widget_show (Btn_MenuPrincipal1);
+  gtk_fixed_put (GTK_FIXED (fixed1), Btn_MenuPrincipal1, 1016, 744);
+  gtk_widget_set_size_request (Btn_MenuPrincipal1, 100, 100);
+
   Btn_Exit1 = gtk_button_new ();
   gtk_widget_show (Btn_Exit1);
-  gtk_fixed_put (GTK_FIXED (fixed1), Btn_Exit1, 1192, 752);
+  gtk_fixed_put (GTK_FIXED (fixed1), Btn_Exit1, 1152, 744);
   gtk_widget_set_size_request (Btn_Exit1, 100, 100);
 
   alignment12 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -526,11 +526,6 @@ create_GestionUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed4), Btn_Menu, 1016, 744);
   gtk_widget_set_size_request (Btn_Menu, 100, 100);
 
-  Btn_Exit2 = gtk_button_new_with_mnemonic (_("Exit"));
-  gtk_widget_show (Btn_Exit2);
-  gtk_fixed_put (GTK_FIXED (fixed4), Btn_Exit2, 1168, 744);
-  gtk_widget_set_size_request (Btn_Exit2, 100, 100);
-
   AfficherUTL = gtk_button_new_with_mnemonic (_("Afficher tous les utl"));
   gtk_widget_show (AfficherUTL);
   gtk_fixed_put (GTK_FIXED (fixed4), AfficherUTL, 1080, 488);
@@ -561,6 +556,11 @@ create_GestionUtilisateur (void)
   gtk_widget_show (Liste_Utilisateur);
   gtk_frame_set_label_widget (GTK_FRAME (frame6), Liste_Utilisateur);
   gtk_label_set_use_markup (GTK_LABEL (Liste_Utilisateur), TRUE);
+
+  Btn_Exit2 = gtk_button_new_with_mnemonic (_("Exit"));
+  gtk_widget_show (Btn_Exit2);
+  gtk_fixed_put (GTK_FIXED (fixed4), Btn_Exit2, 1152, 744);
+  gtk_widget_set_size_request (Btn_Exit2, 100, 100);
 
   Affichage_Utilisateur = gtk_label_new (_("Affichage"));
   gtk_widget_show (Affichage_Utilisateur);
@@ -649,6 +649,11 @@ create_GestionUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed7), ID_Utilisateur_Lbl3, 224, 80);
   gtk_widget_set_size_request (ID_Utilisateur_Lbl3, 100, 17);
 
+  V_Supprimer_Utilisateur = gtk_check_button_new_with_mnemonic (_("Valider la suppression"));
+  gtk_widget_show (V_Supprimer_Utilisateur);
+  gtk_fixed_put (GTK_FIXED (fixed7), V_Supprimer_Utilisateur, 560, 152);
+  gtk_widget_set_size_request (V_Supprimer_Utilisateur, 180, 24);
+
   Supprimer_Utilisateur = gtk_button_new ();
   gtk_widget_show (Supprimer_Utilisateur);
   gtk_fixed_put (GTK_FIXED (fixed7), Supprimer_Utilisateur, 376, 144);
@@ -670,11 +675,6 @@ create_GestionUtilisateur (void)
   gtk_widget_show (label37);
   gtk_box_pack_start (GTK_BOX (hbox5), label37, FALSE, FALSE, 0);
 
-  V_Supprimer_Utilisateur = gtk_check_button_new_with_mnemonic (_("Valider la suppression"));
-  gtk_widget_show (V_Supprimer_Utilisateur);
-  gtk_fixed_put (GTK_FIXED (fixed7), V_Supprimer_Utilisateur, 560, 152);
-  gtk_widget_set_size_request (V_Supprimer_Utilisateur, 180, 24);
-
   Supprimer_Utilisateur_Lbl = gtk_label_new (_("<b>Supprimer Utilisateur</b>"));
   gtk_widget_show (Supprimer_Utilisateur_Lbl);
   gtk_frame_set_label_widget (GTK_FRAME (frame5), Supprimer_Utilisateur_Lbl);
@@ -687,7 +687,7 @@ create_GestionUtilisateur (void)
 
   Btn_Exit3 = gtk_button_new_with_mnemonic (_("Exit"));
   gtk_widget_show (Btn_Exit3);
-  gtk_fixed_put (GTK_FIXED (fixed5), Btn_Exit3, 1192, 744);
+  gtk_fixed_put (GTK_FIXED (fixed5), Btn_Exit3, 1176, 744);
   gtk_widget_set_size_request (Btn_Exit3, 100, 100);
 
   ModifierSupprimer_Utilasteur = gtk_label_new (_("Modifier / Supprimer"));
@@ -734,11 +734,11 @@ create_GestionUtilisateur (void)
   g_signal_connect ((gpointer) Annuler_Utilisateur, "clicked",
                     G_CALLBACK (on_Annuler_Utilisateur_clicked),
                     NULL);
-  g_signal_connect ((gpointer) Btn_MenuPrincipal1, "clicked",
-                    G_CALLBACK (on_Btn_MenuPrincipal_clicked),
-                    NULL);
   g_signal_connect ((gpointer) Ajout_Utilisateur, "clicked",
                     G_CALLBACK (on_Ajout_Utilisateur_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Btn_MenuPrincipal1, "clicked",
+                    G_CALLBACK (on_Btn_MenuPrincipal_clicked),
                     NULL);
   g_signal_connect ((gpointer) Btn_Exit1, "leave",
                     G_CALLBACK (on_Btn_Exit_leave),
@@ -749,11 +749,11 @@ create_GestionUtilisateur (void)
   g_signal_connect ((gpointer) Modifier_Utilisateur, "clicked",
                     G_CALLBACK (on_Modifier_Utilisateur_clicked),
                     NULL);
-  g_signal_connect ((gpointer) Supprimer_Utilisateur, "clicked",
-                    G_CALLBACK (on_Supprimer_Utilisateur_clicked),
-                    NULL);
   g_signal_connect ((gpointer) V_Supprimer_Utilisateur, "toggled",
                     G_CALLBACK (on_V_Supprimer_Utilisateur_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) Supprimer_Utilisateur, "clicked",
+                    G_CALLBACK (on_Supprimer_Utilisateur_clicked),
                     NULL);
   g_signal_connect ((gpointer) Btn_MenuPrincipal2, "clicked",
                     G_CALLBACK (on_Btn_MenuPrincipal2_clicked),
@@ -816,12 +816,12 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox3, "hbox3");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image2, "image2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label35, "label35");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_MenuPrincipal1, "Btn_MenuPrincipal1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Ajout_Utilisateur, "Ajout_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment8, "alignment8");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox2, "hbox2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image1, "image1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label34, "label34");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_MenuPrincipal1, "Btn_MenuPrincipal1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit1, "Btn_Exit1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment12, "alignment12");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox6, "hbox6");
@@ -837,13 +837,13 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image7, "image7");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label54, "label54");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Menu, "Btn_Menu");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit2, "Btn_Exit2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, AfficherUTL, "AfficherUTL");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame6, "frame6");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment6, "alignment6");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, scrolledwindow1, "scrolledwindow1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, treeview1, "treeview1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Liste_Utilisateur, "Liste_Utilisateur");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit2, "Btn_Exit2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Affichage_Utilisateur, "Affichage_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame4, "frame4");
@@ -862,12 +862,12 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, entrySupp, "entrySupp");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ID_Utilisateur_Lbl3, "ID_Utilisateur_Lbl3");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, V_Supprimer_Utilisateur, "V_Supprimer_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Supprimer_Utilisateur, "Supprimer_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment11, "alignment11");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox5, "hbox5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image4, "image4");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label37, "label37");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, V_Supprimer_Utilisateur, "V_Supprimer_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Supprimer_Utilisateur_Lbl, "Supprimer_Utilisateur_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_MenuPrincipal2, "Btn_MenuPrincipal2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit3, "Btn_Exit3");
@@ -2295,13 +2295,13 @@ create_Accueil_Admin (void)
 {
   GtkWidget *Accueil_Admin;
   GtkWidget *fixed14;
-  GtkWidget *GestionElection;
-  GtkWidget *GestionBV;
-  GtkWidget *Statistique;
-  GtkWidget *Btn_Exit;
-  GtkWidget *Btn_Deconnexion;
   GtkWidget *Txt_Acceuil;
   GtkWidget *GestionUtilisateur_Btn;
+  GtkWidget *GestionElection;
+  GtkWidget *Statistique;
+  GtkWidget *GestionBV;
+  GtkWidget *Btn_Deconnexion;
+  GtkWidget *Btn_Exit;
 
   Accueil_Admin = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (Accueil_Admin), _("Accueil Administrateur"));
@@ -2309,31 +2309,6 @@ create_Accueil_Admin (void)
   fixed14 = gtk_fixed_new ();
   gtk_widget_show (fixed14);
   gtk_container_add (GTK_CONTAINER (Accueil_Admin), fixed14);
-
-  GestionElection = gtk_button_new_with_mnemonic (_("Gestion des \303\251lections"));
-  gtk_widget_show (GestionElection);
-  gtk_fixed_put (GTK_FIXED (fixed14), GestionElection, 472, 256);
-  gtk_widget_set_size_request (GestionElection, 200, 100);
-
-  GestionBV = gtk_button_new_with_mnemonic (_("Gestion des bureaux \nde vote"));
-  gtk_widget_show (GestionBV);
-  gtk_fixed_put (GTK_FIXED (fixed14), GestionBV, 792, 256);
-  gtk_widget_set_size_request (GestionBV, 200, 100);
-
-  Statistique = gtk_button_new_with_mnemonic (_("Statistique"));
-  gtk_widget_show (Statistique);
-  gtk_fixed_put (GTK_FIXED (fixed14), Statistique, 472, 432);
-  gtk_widget_set_size_request (Statistique, 200, 100);
-
-  Btn_Exit = gtk_button_new_with_mnemonic (_("Exit"));
-  gtk_widget_show (Btn_Exit);
-  gtk_fixed_put (GTK_FIXED (fixed14), Btn_Exit, 120, 624);
-  gtk_widget_set_size_request (Btn_Exit, 200, 50);
-
-  Btn_Deconnexion = gtk_button_new_with_mnemonic (_("Se d\303\251connecter"));
-  gtk_widget_show (Btn_Deconnexion);
-  gtk_fixed_put (GTK_FIXED (fixed14), Btn_Deconnexion, 848, 624);
-  gtk_widget_set_size_request (Btn_Deconnexion, 200, 50);
 
   Txt_Acceuil = gtk_label_new (_("Acceuil Administrateur"));
   gtk_widget_show (Txt_Acceuil);
@@ -2345,20 +2320,60 @@ create_Accueil_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed14), GestionUtilisateur_Btn, 144, 256);
   gtk_widget_set_size_request (GestionUtilisateur_Btn, 200, 100);
 
+  GestionElection = gtk_button_new_with_mnemonic (_("Gestion des \303\251lections"));
+  gtk_widget_show (GestionElection);
+  gtk_fixed_put (GTK_FIXED (fixed14), GestionElection, 472, 256);
+  gtk_widget_set_size_request (GestionElection, 200, 100);
+
+  Statistique = gtk_button_new_with_mnemonic (_("Statistique"));
+  gtk_widget_show (Statistique);
+  gtk_fixed_put (GTK_FIXED (fixed14), Statistique, 472, 432);
+  gtk_widget_set_size_request (Statistique, 200, 100);
+
+  GestionBV = gtk_button_new_with_mnemonic (_("Gestion des bureaux \nde vote"));
+  gtk_widget_show (GestionBV);
+  gtk_fixed_put (GTK_FIXED (fixed14), GestionBV, 792, 256);
+  gtk_widget_set_size_request (GestionBV, 200, 100);
+
+  Btn_Deconnexion = gtk_button_new_with_mnemonic (_("Se d\303\251connecter"));
+  gtk_widget_show (Btn_Deconnexion);
+  gtk_fixed_put (GTK_FIXED (fixed14), Btn_Deconnexion, 848, 624);
+  gtk_widget_set_size_request (Btn_Deconnexion, 200, 50);
+
+  Btn_Exit = gtk_button_new_with_mnemonic (_("Exit"));
+  gtk_widget_show (Btn_Exit);
+  gtk_fixed_put (GTK_FIXED (fixed14), Btn_Exit, 120, 624);
+  gtk_widget_set_size_request (Btn_Exit, 200, 50);
+
   g_signal_connect ((gpointer) GestionUtilisateur_Btn, "clicked",
                     G_CALLBACK (on_GestionUtilisateur_Btn_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) GestionElection, "clicked",
+                    G_CALLBACK (on_GestionElection_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Statistique, "clicked",
+                    G_CALLBACK (on_Statistique_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) GestionBV, "clicked",
+                    G_CALLBACK (on_GestionBV_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Btn_Deconnexion, "clicked",
+                    G_CALLBACK (on_Btn_Deconnexion_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) Btn_Exit, "clicked",
+                    G_CALLBACK (on_Btn_Exit_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Accueil_Admin, Accueil_Admin, "Accueil_Admin");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, fixed14, "fixed14");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionElection, "GestionElection");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionBV, "GestionBV");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, Statistique, "Statistique");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Exit, "Btn_Exit");
-  GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Deconnexion, "Btn_Deconnexion");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, Txt_Acceuil, "Txt_Acceuil");
   GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionUtilisateur_Btn, "GestionUtilisateur_Btn");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionElection, "GestionElection");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, Statistique, "Statistique");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, GestionBV, "GestionBV");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Deconnexion, "Btn_Deconnexion");
+  GLADE_HOOKUP_OBJECT (Accueil_Admin, Btn_Exit, "Btn_Exit");
 
   return Accueil_Admin;
 }

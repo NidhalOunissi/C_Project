@@ -129,3 +129,23 @@ on_Btn_Exit3_clicked                   (GtkButton       *button,
 void
 on_AfficherUTL_clicked                 (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_GestionElection_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Statistique_clicked                 (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_GestionBV_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Deconnexion_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Exit_clicked                    (GtkButton       *button,
+                                        gpointer         user_data);
