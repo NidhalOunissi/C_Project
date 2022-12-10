@@ -63,6 +63,10 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
     GtkWidget * Cin;
     GtkWidget * ComboBV;
 
+    GtkWidget * Calendar;
+
+
+
     GtkWidget * GestionUtilisateur;
 
     GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
@@ -76,6 +80,11 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
     C_Mdp=lookup_widget(button,"V_Mdp_Utilisateur");
 
     ComboBV=lookup_widget(button,"combobox1");
+
+    Calendar=lookup_widget(button,"calendar1");
+
+    gtk_calendar_get_date(Calendar,&utl.DateNaissance.jours,&utl.DateNaissance.mois,&utl.DateNaissance.annee);
+
 
 
 
@@ -95,28 +104,29 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
         strcpy(utl.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
         strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
         strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+        utl.v.vote=-1;
 
-        if(strcmp("Arrondissement 1",(gtk_combo_box_get_active_text(ComboBV))))
+        if(strcmp("Arrondissement 1",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=1;
         }
-        else if(strcmp("Arrondissement 2",(gtk_combo_box_get_active_text(ComboBV)))) 
+        else if(strcmp("Arrondissement 2",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=2;
         }
-        else if(strcmp("Arrondissement 3",(gtk_combo_box_get_active_text(ComboBV))))
+        else if(strcmp("Arrondissement 3",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=3;
         }
-        else if(strcmp("Arrondissement 4",(gtk_combo_box_get_active_text(ComboBV))))
+        else if(strcmp("Arrondissement 4",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=4;
         }
-        else if(strcmp("Arrondissement 5",(gtk_combo_box_get_active_text(ComboBV))))
+        else if(strcmp("Arrondissement 5",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=5;
         }
-        else if(strcmp("Arrondissement 6",(gtk_combo_box_get_active_text(ComboBV))))
+        else if(strcmp("Arrondissement 6",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
         {
             utl.BV=6;
         }

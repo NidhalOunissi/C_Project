@@ -99,11 +99,6 @@ create_GestionUtilisateur (void)
   GtkWidget *Ajout_Utilisateur_Lbl;
   GtkWidget *hbox1;
   GtkWidget *fixed4;
-  GtkWidget *frame6;
-  GtkWidget *alignment6;
-  GtkWidget *scrolledwindow1;
-  GtkWidget *treeview1;
-  GtkWidget *Liste_Utilisateur;
   GtkWidget *entry19;
   GtkWidget *ChercherUtl;
   GtkWidget *alignment26;
@@ -113,6 +108,11 @@ create_GestionUtilisateur (void)
   GtkWidget *Btn_Menu;
   GtkWidget *Btn_Exit2;
   GtkWidget *AfficherUTL;
+  GtkWidget *frame6;
+  GtkWidget *alignment6;
+  GtkWidget *scrolledwindow1;
+  GtkWidget *treeview1;
+  GtkWidget *Liste_Utilisateur;
   GtkWidget *Affichage_Utilisateur;
   GtkWidget *fixed5;
   GtkWidget *frame4;
@@ -251,7 +251,8 @@ create_GestionUtilisateur (void)
   gtk_widget_set_size_request (calendar1, 162, 186);
   gtk_calendar_display_options (GTK_CALENDAR (calendar1),
                                 GTK_CALENDAR_SHOW_HEADING
-                                | GTK_CALENDAR_SHOW_DAY_NAMES);
+                                | GTK_CALENDAR_SHOW_DAY_NAMES
+                                | GTK_CALENDAR_WEEK_START_MONDAY);
 
   Nom_Lbl = gtk_label_new (_("Nom"));
   gtk_widget_show (Nom_Lbl);
@@ -493,32 +494,6 @@ create_GestionUtilisateur (void)
   gtk_widget_show (fixed4);
   gtk_box_pack_start (GTK_BOX (hbox1), fixed4, TRUE, TRUE, 0);
 
-  frame6 = gtk_frame_new (NULL);
-  gtk_widget_show (frame6);
-  gtk_fixed_put (GTK_FIXED (fixed4), frame6, 88, 136);
-  gtk_widget_set_size_request (frame6, 912, 584);
-  gtk_frame_set_shadow_type (GTK_FRAME (frame6), GTK_SHADOW_NONE);
-
-  alignment6 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment6);
-  gtk_container_add (GTK_CONTAINER (frame6), alignment6);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment6), 0, 0, 12, 0);
-
-  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_show (scrolledwindow1);
-  gtk_container_add (GTK_CONTAINER (alignment6), scrolledwindow1);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_SHADOW_IN);
-
-  treeview1 = gtk_tree_view_new ();
-  gtk_widget_show (treeview1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
-  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (treeview1), TRUE);
-
-  Liste_Utilisateur = gtk_label_new (_("<b>Liste Utilisateur</b>"));
-  gtk_widget_show (Liste_Utilisateur);
-  gtk_frame_set_label_widget (GTK_FRAME (frame6), Liste_Utilisateur);
-  gtk_label_set_use_markup (GTK_LABEL (Liste_Utilisateur), TRUE);
-
   entry19 = gtk_entry_new ();
   gtk_widget_show (entry19);
   gtk_fixed_put (GTK_FIXED (fixed4), entry19, 1056, 248);
@@ -560,6 +535,32 @@ create_GestionUtilisateur (void)
   gtk_widget_show (AfficherUTL);
   gtk_fixed_put (GTK_FIXED (fixed4), AfficherUTL, 1080, 488);
   gtk_widget_set_size_request (AfficherUTL, 176, 45);
+
+  frame6 = gtk_frame_new (NULL);
+  gtk_widget_show (frame6);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame6, 88, 136);
+  gtk_widget_set_size_request (frame6, 912, 584);
+  gtk_frame_set_shadow_type (GTK_FRAME (frame6), GTK_SHADOW_NONE);
+
+  alignment6 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment6);
+  gtk_container_add (GTK_CONTAINER (frame6), alignment6);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment6), 0, 0, 12, 0);
+
+  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow1);
+  gtk_container_add (GTK_CONTAINER (alignment6), scrolledwindow1);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_SHADOW_IN);
+
+  treeview1 = gtk_tree_view_new ();
+  gtk_widget_show (treeview1);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
+  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (treeview1), TRUE);
+
+  Liste_Utilisateur = gtk_label_new (_("<b>Liste Utilisateur</b>"));
+  gtk_widget_show (Liste_Utilisateur);
+  gtk_frame_set_label_widget (GTK_FRAME (frame6), Liste_Utilisateur);
+  gtk_label_set_use_markup (GTK_LABEL (Liste_Utilisateur), TRUE);
 
   Affichage_Utilisateur = gtk_label_new (_("Affichage"));
   gtk_widget_show (Affichage_Utilisateur);
@@ -829,11 +830,6 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Ajout_Utilisateur_Lbl, "Ajout_Utilisateur_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox1, "hbox1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed4, "fixed4");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame6, "frame6");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment6, "alignment6");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Liste_Utilisateur, "Liste_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, entry19, "entry19");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ChercherUtl, "ChercherUtl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment26, "alignment26");
@@ -843,6 +839,11 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Menu, "Btn_Menu");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit2, "Btn_Exit2");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, AfficherUTL, "AfficherUTL");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame6, "frame6");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment6, "alignment6");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Liste_Utilisateur, "Liste_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Affichage_Utilisateur, "Affichage_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame4, "frame4");
@@ -893,11 +894,11 @@ create_Identification (void)
   GtkWidget *hbox7;
   GtkWidget *image6;
   GtkWidget *label39;
-  GtkWidget *R_Admin;
-  GSList *R_Admin_group = NULL;
   GtkWidget *R_Observateur;
+  GSList *R_Observateur_group = NULL;
   GtkWidget *R_Electeur;
   GtkWidget *R_Agent_Bureau;
+  GtkWidget *R_Admin;
   GtkWidget *Identifiaction;
 
   Identification = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -970,33 +971,34 @@ create_Identification (void)
   gtk_widget_show (label39);
   gtk_box_pack_start (GTK_BOX (hbox7), label39, FALSE, FALSE, 0);
 
-  R_Admin = gtk_radio_button_new_with_mnemonic (NULL, _("Admin"));
-  gtk_widget_show (R_Admin);
-  gtk_fixed_put (GTK_FIXED (fixed9), R_Admin, 160, 32);
-  gtk_widget_set_size_request (R_Admin, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Admin), R_Admin_group);
-  R_Admin_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Admin));
-
   R_Observateur = gtk_radio_button_new_with_mnemonic (NULL, _("Observateur"));
   gtk_widget_show (R_Observateur);
   gtk_fixed_put (GTK_FIXED (fixed9), R_Observateur, 336, 32);
   gtk_widget_set_size_request (R_Observateur, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Observateur), R_Admin_group);
-  R_Admin_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Observateur));
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Observateur), R_Observateur_group);
+  R_Observateur_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Observateur));
 
   R_Electeur = gtk_radio_button_new_with_mnemonic (NULL, _("Electeur"));
   gtk_widget_show (R_Electeur);
   gtk_fixed_put (GTK_FIXED (fixed9), R_Electeur, 336, 64);
   gtk_widget_set_size_request (R_Electeur, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Electeur), R_Admin_group);
-  R_Admin_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Electeur));
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Electeur), R_Observateur_group);
+  R_Observateur_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Electeur));
 
   R_Agent_Bureau = gtk_radio_button_new_with_mnemonic (NULL, _("Agent  de bureau"));
   gtk_widget_show (R_Agent_Bureau);
   gtk_fixed_put (GTK_FIXED (fixed9), R_Agent_Bureau, 160, 64);
   gtk_widget_set_size_request (R_Agent_Bureau, 150, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Agent_Bureau), R_Admin_group);
-  R_Admin_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Agent_Bureau));
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Agent_Bureau), R_Observateur_group);
+  R_Observateur_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Agent_Bureau));
+
+  R_Admin = gtk_radio_button_new_with_mnemonic (NULL, _("Admin"));
+  gtk_widget_show (R_Admin);
+  gtk_fixed_put (GTK_FIXED (fixed9), R_Admin, 160, 32);
+  gtk_widget_set_size_request (R_Admin, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (R_Admin), R_Observateur_group);
+  R_Observateur_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (R_Admin));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (R_Admin), TRUE);
 
   Identifiaction = gtk_label_new (_("<b>S'identifier</b>"));
   gtk_widget_show (Identifiaction);
@@ -1006,9 +1008,6 @@ create_Identification (void)
   g_signal_connect ((gpointer) Btn_Connecter, "clicked",
                     G_CALLBACK (on_Btn_Connecter_clicked),
                     NULL);
-  g_signal_connect ((gpointer) R_Admin, "toggled",
-                    G_CALLBACK (on_R_Admin_toggled),
-                    NULL);
   g_signal_connect ((gpointer) R_Observateur, "toggled",
                     G_CALLBACK (on_R_Observateur_toggled),
                     NULL);
@@ -1017,6 +1016,9 @@ create_Identification (void)
                     NULL);
   g_signal_connect ((gpointer) R_Agent_Bureau, "toggled",
                     G_CALLBACK (on_R_Agent_Bureau_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) R_Admin, "toggled",
+                    G_CALLBACK (on_R_Admin_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1035,10 +1037,10 @@ create_Identification (void)
   GLADE_HOOKUP_OBJECT (Identification, hbox7, "hbox7");
   GLADE_HOOKUP_OBJECT (Identification, image6, "image6");
   GLADE_HOOKUP_OBJECT (Identification, label39, "label39");
-  GLADE_HOOKUP_OBJECT (Identification, R_Admin, "R_Admin");
   GLADE_HOOKUP_OBJECT (Identification, R_Observateur, "R_Observateur");
   GLADE_HOOKUP_OBJECT (Identification, R_Electeur, "R_Electeur");
   GLADE_HOOKUP_OBJECT (Identification, R_Agent_Bureau, "R_Agent_Bureau");
+  GLADE_HOOKUP_OBJECT (Identification, R_Admin, "R_Admin");
   GLADE_HOOKUP_OBJECT (Identification, Identifiaction, "Identifiaction");
 
   return Identification;

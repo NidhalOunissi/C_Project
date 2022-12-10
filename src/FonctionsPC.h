@@ -6,7 +6,7 @@
 typedef struct
 {
     int jours;
-    char mois [10];
+    int mois;
     int annee;
 
 }Date;
