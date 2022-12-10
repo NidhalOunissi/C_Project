@@ -79,13 +79,6 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 
 
 
-
-
-
-
-
-
-
     /*strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
     strcpy(utl.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
     strcpy(utl.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
@@ -642,6 +635,23 @@ on_Btn_Exit3_clicked                   (GtkButton       *button,
                                         gpointer         user_data)
 {
     gtk_main_quit();
+
+}
+
+
+void
+on_AfficherUTL_clicked                 (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget *treeview;
+
+    GtkWidget * Affichage;
+
+    Affichage=lookup_widget(button,"GestionUtilisateur");
+
+    treeview=lookup_widget(Affichage,"treeview1");
+
+    AfficherUtl(treeview);
 
 }
 

@@ -70,7 +70,6 @@ create_GestionUtilisateur (void)
   GtkWidget *AgentBureauCmb;
   GtkWidget *ElecteurCmb;
   GtkWidget *ObservateurCmb;
-  GtkWidget *combobox1;
   GtkWidget *Poste_Lbl;
   GtkWidget *Appartenance_Lbl;
   GtkWidget *Arrondissement_Lbl;
@@ -79,6 +78,7 @@ create_GestionUtilisateur (void)
   GtkWidget *Obs_PartiePolitique;
   GtkWidget *Obs_SV;
   GtkWidget *Obs_Autre;
+  GtkWidget *combobox1;
   GtkWidget *Poste;
   GtkWidget *Annuler_Utilisateur;
   GtkWidget *alignment9;
@@ -112,6 +112,7 @@ create_GestionUtilisateur (void)
   GtkWidget *label54;
   GtkWidget *Btn_Menu;
   GtkWidget *Btn_Exit2;
+  GtkWidget *AfficherUTL;
   GtkWidget *Affichage_Utilisateur;
   GtkWidget *fixed5;
   GtkWidget *frame4;
@@ -350,18 +351,6 @@ create_GestionUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed2), ObservateurCmb, 344, 80);
   gtk_widget_set_size_request (ObservateurCmb, 118, 24);
 
-  combobox1 = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox1);
-  gtk_fixed_put (GTK_FIXED (fixed2), combobox1, 216, 272);
-  gtk_widget_set_size_request (combobox1, 200, 31);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 1"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 2"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 3"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 4"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 5"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 6"));
-  gtk_combo_box_set_add_tearoffs (GTK_COMBO_BOX (combobox1), TRUE);
-
   Poste_Lbl = gtk_label_new (_("Poste"));
   gtk_widget_show (Poste_Lbl);
   gtk_fixed_put (GTK_FIXED (fixed2), Poste_Lbl, 64, 48);
@@ -404,6 +393,18 @@ create_GestionUtilisateur (void)
   gtk_widget_set_size_request (Obs_Autre, 116, 24);
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (Obs_Autre), Obs_Presse_group);
   Obs_Presse_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (Obs_Autre));
+
+  combobox1 = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox1);
+  gtk_fixed_put (GTK_FIXED (fixed2), combobox1, 216, 272);
+  gtk_widget_set_size_request (combobox1, 200, 31);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 1"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 2"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 3"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 4"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 5"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox1), _("Arrondissement 6"));
+  gtk_combo_box_set_add_tearoffs (GTK_COMBO_BOX (combobox1), TRUE);
 
   Poste = gtk_label_new (_("<b>Poste et Arrondissement </b>"));
   gtk_widget_show (Poste);
@@ -554,6 +555,11 @@ create_GestionUtilisateur (void)
   gtk_widget_show (Btn_Exit2);
   gtk_fixed_put (GTK_FIXED (fixed4), Btn_Exit2, 1168, 744);
   gtk_widget_set_size_request (Btn_Exit2, 100, 100);
+
+  AfficherUTL = gtk_button_new_with_mnemonic (_("Afficher tous les utl"));
+  gtk_widget_show (AfficherUTL);
+  gtk_fixed_put (GTK_FIXED (fixed4), AfficherUTL, 1080, 488);
+  gtk_widget_set_size_request (AfficherUTL, 176, 45);
 
   Affichage_Utilisateur = gtk_label_new (_("Affichage"));
   gtk_widget_show (Affichage_Utilisateur);
@@ -736,6 +742,9 @@ create_GestionUtilisateur (void)
   g_signal_connect ((gpointer) Btn_Exit1, "leave",
                     G_CALLBACK (on_Btn_Exit_leave),
                     NULL);
+  g_signal_connect ((gpointer) AfficherUTL, "clicked",
+                    G_CALLBACK (on_AfficherUTL_clicked),
+                    NULL);
   g_signal_connect ((gpointer) Modifier_Utilisateur, "clicked",
                     G_CALLBACK (on_Modifier_Utilisateur_clicked),
                     NULL);
@@ -792,7 +801,6 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, AgentBureauCmb, "AgentBureauCmb");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ElecteurCmb, "ElecteurCmb");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, ObservateurCmb, "ObservateurCmb");
-  GLADE_HOOKUP_OBJECT (GestionUtilisateur, combobox1, "combobox1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Poste_Lbl, "Poste_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Appartenance_Lbl, "Appartenance_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Arrondissement_Lbl, "Arrondissement_Lbl");
@@ -800,6 +808,7 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_PartiePolitique, "Obs_PartiePolitique");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_SV, "Obs_SV");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Obs_Autre, "Obs_Autre");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, combobox1, "combobox1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Poste, "Poste");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Annuler_Utilisateur, "Annuler_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment9, "alignment9");
@@ -833,6 +842,7 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label54, "label54");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Menu, "Btn_Menu");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Btn_Exit2, "Btn_Exit2");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, AfficherUTL, "AfficherUTL");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Affichage_Utilisateur, "Affichage_Utilisateur");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, frame4, "frame4");

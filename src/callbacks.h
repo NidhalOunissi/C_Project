@@ -125,3 +125,7 @@ on_Btn_MenuPrincipal2_clicked          (GtkButton       *button,
 void
 on_Btn_Exit3_clicked                   (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_AfficherUTL_clicked                 (GtkButton       *button,
+                                        gpointer         user_data);

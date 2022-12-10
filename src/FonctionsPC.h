@@ -1,6 +1,8 @@
 #ifndef FONCTIONSPC_H_INCLUDED
 #define FONCTIONSPC_H_INCLUDED
 
+#include<gtk/gtk.h>
+
 typedef struct
 {
     int jours;
@@ -47,6 +49,7 @@ int modifierUtilisateur( char * utilisateurs, int id, Utilisateur aux);
 int supprimerUtilisateur(char * utilisateurs, int id);
 int chercherUtilisateur(char * filename, int id);
 int VerifierConnexion (char * filename, Credentials c, int i);
+void AfficherUtl (GtkWidget *liste);
 
 
 

@@ -1,6 +1,7 @@
 #include "FonctionsPC.h"
 #include <stdio.h>
 #include <string.h>
+#include <gtk/gtk.h>
 
 
 /*Utilisateur SaisirUtilisateur ()
@@ -173,4 +174,70 @@ int VerifierConnexion (char * filename, Credentials c, int i)
     fclose(f);
 
     return Verif;
+}
+
+enum
+    {
+        CIN,
+        NOM,
+        PRENOM,
+        ID,
+        COLUMNS
+    };
+
+void AfficherUtl (GtkWidget *liste)
+{
+    GtkCellRenderer *renderer;
+    GtkTreeViewColumn *column;
+    GtkTreeIter iter;
+
+    GtkListStore * store;
+
+    FILE *f;
+
+    Utilisateur utl;
+
+    store=gtk_tree_view_get_model(liste);
+    if(store ==NULL)
+    {
+        renderer=gtk_cell_renderer_text_new();
+        column=gtk_tree_view_column_new_with_attributes("Cin",renderer,"text",CIN,NULL);
+        gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+
+        renderer=gtk_cell_renderer_text_new();
+        column=gtk_tree_view_column_new_with_attributes("Nom",renderer,"text",NOM,NULL);
+        gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+
+        renderer=gtk_cell_renderer_text_new();
+        column=gtk_tree_view_column_new_with_attributes("Prenom",renderer,"text",PRENOM,NULL);
+        gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+
+        renderer=gtk_cell_renderer_text_new();
+        column=gtk_tree_view_column_new_with_attributes("ID",renderer,"text",ID,NULL);
+        gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+
+        store=gtk_list_store_new(COLUMNS,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING);
+
+        f=fopen("Utilisateur.txt","r");
+
+        if(f==NULL)
+        {
+            return;
+        }
+        else
+        {
+            f=fopen("Utilisateur.txt", "a+");
+                while(fscanf(f,"%s %s %s %d %s %d %s %s %d %d %d %d %d %d %d \n",utl.nom,utl.prenom,utl.CIN,&utl.DateNaissance.jours,utl.DateNaissance.mois,&utl.DateNaissance.annee,utl.ID,utl.mdp,&utl.genre,&utl.role[0],&utl.role[1],&utl.role[2],&utl.role[3],&utl.BV,&utl.v.vote)!=EOF)
+                {
+                    gtk_list_store_append(store,&iter);
+                    
+                    gtk_list_store_set(store,&iter,CIN,utl.CIN,NOM,utl.nom,PRENOM,utl.prenom,ID,utl.ID,-1);
+                }
+                fclose(f);
+            gtk_tree_view_set_model(GTK_TREE_VIEW(liste),GTK_TREE_MODEL(store));
+            g_object_unref(store);
+        }
+
+    }
+
 }
