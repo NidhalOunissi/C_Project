@@ -846,3 +846,125 @@ on_Modif_Actv_clicked                  (GtkButton       *button,
 
 }
 
+
+void
+on_Btn_Menu_clicked                    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * GestionUtilisateur;
+    GtkWidget * Acceuil_Admin;
+
+    GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
+    gtk_widget_hide(GestionUtilisateur);
+    Acceuil_Admin=create_Accueil_Admin();
+    gtk_widget_show(Acceuil_Admin);
+
+}
+
+
+void
+on_Btn_Exit2_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    gtk_main_quit();
+
+}
+
+
+void
+on_Btn_Exit4_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    gtk_main_quit();
+
+}
+
+
+void
+on_Btn_Deconnexion4_clicked            (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * Identif;
+    GtkWidget * Acceuil_Agent_Bureau;
+
+    Acceuil_Agent_Bureau=lookup_widget(button,"Accueil_Agent_Bureau");
+    gtk_widget_hide(Acceuil_Agent_Bureau);
+    Identif=create_Identification();
+    gtk_widget_show(Identif);
+
+}
+
+
+void
+on_GestionObservateur_AccAB_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * GAB;
+    GtkWidget * Acceuil_Agent_Bureau;
+
+    Acceuil_Agent_Bureau=lookup_widget(button,"Accueil_Agent_Bureau");
+    gtk_widget_hide(Acceuil_Agent_Bureau);
+    GAB=create_Gestion_des_observateurs();
+    gtk_widget_show(GAB);
+
+
+
+}
+
+
+void
+on_Btn_Exit5_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    gtk_main_quit();
+
+}
+
+
+void
+on_Btn_Deconnexion5_clicked            (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    GtkWidget * Identif;
+    GtkWidget * Acceuil_Elec;
+
+    Acceuil_Elec=lookup_widget(button,"Accueil_Electeur");
+    gtk_widget_hide(Acceuil_Elec);
+    Identif=create_Identification();
+    gtk_widget_show(Identif);
+
+}
+
+
+void
+on_GestionListeElec2_clicked           (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    GtkWidget * GLE;
+    GtkWidget * Acceuil_Elec;
+
+    Acceuil_Elec=lookup_widget(button,"Accueil_Electeur");
+    gtk_widget_hide(Acceuil_Elec);
+    GLE=create_GestionLstElect();
+    gtk_widget_show(GLE);
+
+
+}
+
+
+void
+on_Vote_clicked                        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    GtkWidget * Vote;
+    GtkWidget * Acceuil_Elec;
+
+    Acceuil_Elec=lookup_widget(button,"Accueil_Electeur");
+    gtk_widget_hide(Acceuil_Elec);
+    Vote=create_Vote();
+    gtk_widget_show(Vote);
+
+}
+

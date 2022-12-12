@@ -153,3 +153,39 @@ on_Btn_Exit_clicked                    (GtkButton       *button,
 void
 on_Modif_Actv_clicked                  (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_Btn_Menu_clicked                    (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Exit2_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Exit4_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Deconnexion4_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_GestionObservateur_AccAB_clicked    (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Exit5_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Btn_Deconnexion5_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_GestionListeElec2_clicked           (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_Vote_clicked                        (GtkButton       *button,
+                                        gpointer         user_data);

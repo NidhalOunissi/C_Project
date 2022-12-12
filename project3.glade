@@ -1119,104 +1119,6 @@ Arrondissement 6</property>
 	  </child>
 
 	  <child>
-	    <widget class="GtkButton" id="Btn_MenuPrincipal1">
-	      <property name="width_request">100</property>
-	      <property name="height_request">100</property>
-	      <property name="visible">True</property>
-	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Retour Menu</property>
-	      <property name="use_underline">True</property>
-	      <property name="relief">GTK_RELIEF_NORMAL</property>
-	      <property name="focus_on_click">True</property>
-	      <signal name="clicked" handler="on_Btn_MenuPrincipal_clicked" last_modification_time="Fri, 02 Dec 2022 10:13:38 GMT"/>
-	    </widget>
-	    <packing>
-	      <property name="x">1016</property>
-	      <property name="y">744</property>
-	    </packing>
-	  </child>
-
-	  <child>
-	    <widget class="GtkButton" id="Btn_Exit1">
-	      <property name="width_request">100</property>
-	      <property name="height_request">100</property>
-	      <property name="visible">True</property>
-	      <property name="can_focus">True</property>
-	      <property name="relief">GTK_RELIEF_NORMAL</property>
-	      <property name="focus_on_click">True</property>
-	      <signal name="leave" handler="on_Btn_Exit_leave" last_modification_time="Fri, 02 Dec 2022 10:13:57 GMT"/>
-
-	      <child>
-		<widget class="GtkAlignment" id="alignment12">
-		  <property name="visible">True</property>
-		  <property name="xalign">0.5</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xscale">0</property>
-		  <property name="yscale">0</property>
-		  <property name="top_padding">0</property>
-		  <property name="bottom_padding">0</property>
-		  <property name="left_padding">0</property>
-		  <property name="right_padding">0</property>
-
-		  <child>
-		    <widget class="GtkHBox" id="hbox6">
-		      <property name="visible">True</property>
-		      <property name="homogeneous">False</property>
-		      <property name="spacing">2</property>
-
-		      <child>
-			<widget class="GtkImage" id="image5">
-			  <property name="visible">True</property>
-			  <property name="stock">gtk-close</property>
-			  <property name="icon_size">4</property>
-			  <property name="xalign">0.5</property>
-			  <property name="yalign">0.5</property>
-			  <property name="xpad">0</property>
-			  <property name="ypad">0</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkLabel" id="label38">
-			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Exit</property>
-			  <property name="use_underline">True</property>
-			  <property name="use_markup">False</property>
-			  <property name="justify">GTK_JUSTIFY_LEFT</property>
-			  <property name="wrap">False</property>
-			  <property name="selectable">False</property>
-			  <property name="xalign">0.5</property>
-			  <property name="yalign">0.5</property>
-			  <property name="xpad">0</property>
-			  <property name="ypad">0</property>
-			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-			  <property name="width_chars">-1</property>
-			  <property name="single_line_mode">False</property>
-			  <property name="angle">0</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-		    </widget>
-		  </child>
-		</widget>
-	      </child>
-	    </widget>
-	    <packing>
-	      <property name="x">1152</property>
-	      <property name="y">744</property>
-	    </packing>
-	  </child>
-
-	  <child>
 	    <widget class="GtkLabel" id="Modif_Active">
 	      <property name="width_request">144</property>
 	      <property name="height_request">16</property>
@@ -1320,6 +1222,104 @@ Modification</property>
 	    <packing>
 	      <property name="x">760</property>
 	      <property name="y">632</property>
+	    </packing>
+	  </child>
+
+	  <child>
+	    <widget class="GtkButton" id="Btn_Exit1">
+	      <property name="width_request">100</property>
+	      <property name="height_request">100</property>
+	      <property name="visible">True</property>
+	      <property name="can_focus">True</property>
+	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
+	      <signal name="leave" handler="on_Btn_Exit_leave" last_modification_time="Fri, 02 Dec 2022 10:13:57 GMT"/>
+
+	      <child>
+		<widget class="GtkAlignment" id="alignment12">
+		  <property name="visible">True</property>
+		  <property name="xalign">0.5</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xscale">0</property>
+		  <property name="yscale">0</property>
+		  <property name="top_padding">0</property>
+		  <property name="bottom_padding">0</property>
+		  <property name="left_padding">0</property>
+		  <property name="right_padding">0</property>
+
+		  <child>
+		    <widget class="GtkHBox" id="hbox6">
+		      <property name="visible">True</property>
+		      <property name="homogeneous">False</property>
+		      <property name="spacing">2</property>
+
+		      <child>
+			<widget class="GtkImage" id="image5">
+			  <property name="visible">True</property>
+			  <property name="stock">gtk-close</property>
+			  <property name="icon_size">4</property>
+			  <property name="xalign">0.5</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkLabel" id="label38">
+			  <property name="visible">True</property>
+			  <property name="label" translatable="yes">Exit</property>
+			  <property name="use_underline">True</property>
+			  <property name="use_markup">False</property>
+			  <property name="justify">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap">False</property>
+			  <property name="selectable">False</property>
+			  <property name="xalign">0.5</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">0</property>
+			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			  <property name="width_chars">-1</property>
+			  <property name="single_line_mode">False</property>
+			  <property name="angle">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+		    </widget>
+		  </child>
+		</widget>
+	      </child>
+	    </widget>
+	    <packing>
+	      <property name="x">1152</property>
+	      <property name="y">744</property>
+	    </packing>
+	  </child>
+
+	  <child>
+	    <widget class="GtkButton" id="Btn_MenuPrincipal1">
+	      <property name="width_request">100</property>
+	      <property name="height_request">100</property>
+	      <property name="visible">True</property>
+	      <property name="can_focus">True</property>
+	      <property name="label" translatable="yes">Retour Menu</property>
+	      <property name="use_underline">True</property>
+	      <property name="relief">GTK_RELIEF_NORMAL</property>
+	      <property name="focus_on_click">True</property>
+	      <signal name="clicked" handler="on_Btn_MenuPrincipal_clicked" last_modification_time="Fri, 02 Dec 2022 10:13:38 GMT"/>
+	    </widget>
+	    <packing>
+	      <property name="x">1016</property>
+	      <property name="y">744</property>
 	    </packing>
 	  </child>
 	</widget>
@@ -1463,23 +1463,6 @@ Modification</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkButton" id="Btn_Menu">
-		  <property name="width_request">100</property>
-		  <property name="height_request">100</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Retour Menu</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		</widget>
-		<packing>
-		  <property name="x">1016</property>
-		  <property name="y">744</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkButton" id="AfficherUTL">
 		  <property name="width_request">176</property>
 		  <property name="height_request">45</property>
@@ -1575,6 +1558,24 @@ Modification</property>
 	      </child>
 
 	      <child>
+		<widget class="GtkButton" id="Btn_Menu">
+		  <property name="width_request">100</property>
+		  <property name="height_request">100</property>
+		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Retour Menu</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <signal name="clicked" handler="on_Btn_Menu_clicked" last_modification_time="Mon, 12 Dec 2022 21:48:12 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">1016</property>
+		  <property name="y">744</property>
+		</packing>
+	      </child>
+
+	      <child>
 		<widget class="GtkButton" id="Btn_Exit2">
 		  <property name="width_request">100</property>
 		  <property name="height_request">100</property>
@@ -1584,6 +1585,7 @@ Modification</property>
 		  <property name="use_underline">True</property>
 		  <property name="relief">GTK_RELIEF_NORMAL</property>
 		  <property name="focus_on_click">True</property>
+		  <signal name="clicked" handler="on_Btn_Exit2_clicked" last_modification_time="Mon, 12 Dec 2022 21:48:21 GMT"/>
 		</widget>
 		<packing>
 		  <property name="x">1152</property>
@@ -2034,7 +2036,7 @@ Modification</property>
 	      <signal name="clicked" handler="on_Btn_MenuPrincipal2_clicked" last_modification_time="Thu, 08 Dec 2022 13:16:06 GMT"/>
 	    </widget>
 	    <packing>
-	      <property name="x">1056</property>
+	      <property name="x">1016</property>
 	      <property name="y">744</property>
 	    </packing>
 	  </child>
@@ -2052,7 +2054,7 @@ Modification</property>
 	      <signal name="clicked" handler="on_Btn_Exit3_clicked" last_modification_time="Thu, 08 Dec 2022 13:16:17 GMT"/>
 	    </widget>
 	    <packing>
-	      <property name="x">1176</property>
+	      <property name="x">1136</property>
 	      <property name="y">744</property>
 	    </packing>
 	  </child>
@@ -5875,6 +5877,42 @@ Modification</property>
       </child>
 
       <child>
+	<widget class="GtkButton" id="Btn_Deconnexion">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Se déconnecter</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Deconnexion_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:37 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">808</property>
+	  <property name="y">592</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Btn_Exit">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Exit</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Exit_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:45 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">48</property>
+	  <property name="y">592</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkButton" id="GestionElection">
 	  <property name="width_request">200</property>
 	  <property name="height_request">100</property>
@@ -5889,24 +5927,6 @@ Modification</property>
 	<packing>
 	  <property name="x">472</property>
 	  <property name="y">256</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Statistique">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Statistique</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_Statistique_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:20 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">472</property>
-	  <property name="y">432</property>
 	</packing>
       </child>
 
@@ -5930,38 +5950,20 @@ de vote</property>
       </child>
 
       <child>
-	<widget class="GtkButton" id="Btn_Deconnexion">
+	<widget class="GtkButton" id="Statistique">
 	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
+	  <property name="height_request">100</property>
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Se déconnecter</property>
+	  <property name="label" translatable="yes">Statistique</property>
 	  <property name="use_underline">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_Btn_Deconnexion_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:37 GMT"/>
+	  <signal name="clicked" handler="on_Statistique_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:20 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">848</property>
-	  <property name="y">624</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Btn_Exit">
-	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Exit</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_Btn_Exit_clicked" last_modification_time="Sat, 10 Dec 2022 21:55:45 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">120</property>
-	  <property name="y">624</property>
+	  <property name="x">472</property>
+	  <property name="y">432</property>
 	</packing>
       </child>
     </widget>
@@ -5989,7 +5991,7 @@ de vote</property>
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="Btn_Exit">
+	<widget class="GtkButton" id="Btn_Exit4">
 	  <property name="width_request">200</property>
 	  <property name="height_request">50</property>
 	  <property name="visible">True</property>
@@ -5998,27 +6000,11 @@ de vote</property>
 	  <property name="use_underline">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Exit4_clicked" last_modification_time="Mon, 12 Dec 2022 21:53:59 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">80</property>
-	  <property name="y">600</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Btn_Deconnexion">
-	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Se déconnecter</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">760</property>
-	  <property name="y">608</property>
+	  <property name="x">64</property>
+	  <property name="y">568</property>
 	</packing>
       </child>
 
@@ -6044,13 +6030,13 @@ Agent de bureau</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">408</property>
+	  <property name="x">392</property>
 	  <property name="y">120</property>
 	</packing>
       </child>
 
       <child>
-	<widget class="GtkButton" id="GestionObservateur">
+	<widget class="GtkButton" id="GestionObservateur_AccAB">
 	  <property name="width_request">200</property>
 	  <property name="height_request">100</property>
 	  <property name="visible">True</property>
@@ -6059,10 +6045,29 @@ Agent de bureau</property>
 	  <property name="use_underline">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_GestionObservateur_AccAB_clicked" last_modification_time="Mon, 12 Dec 2022 21:54:53 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">400</property>
-	  <property name="y">288</property>
+	  <property name="x">384</property>
+	  <property name="y">264</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Btn_Deconnexion4">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Se déconnecter</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Deconnexion4_clicked" last_modification_time="Mon, 12 Dec 2022 21:54:39 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">728</property>
+	  <property name="y">568</property>
 	</packing>
       </child>
     </widget>
@@ -6090,74 +6095,6 @@ Agent de bureau</property>
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="Vote">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Vote</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">424</property>
-	  <property name="y">224</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="GestionListeElec">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Gestion des listes électorales</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">424</property>
-	  <property name="y">376</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Btn_Exit">
-	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Exit</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">80</property>
-	  <property name="y">560</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Btn_Deconnexion">
-	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Se déconnecter</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">784</property>
-	  <property name="y">560</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkLabel" id="Txt_Acceuil">
 	  <property name="width_request">120</property>
 	  <property name="height_request">17</property>
@@ -6178,8 +6115,80 @@ Agent de bureau</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">464</property>
-	  <property name="y">104</property>
+	  <property name="x">448</property>
+	  <property name="y">96</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Btn_Exit5">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Exit</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Exit5_clicked" last_modification_time="Mon, 12 Dec 2022 21:57:01 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">40</property>
+	  <property name="y">520</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="GestionListeElec2">
+	  <property name="width_request">200</property>
+	  <property name="height_request">100</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Gestion des listes électorales</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_GestionListeElec2_clicked" last_modification_time="Mon, 12 Dec 2022 21:56:26 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">408</property>
+	  <property name="y">352</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Btn_Deconnexion5">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Se déconnecter</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Deconnexion5_clicked" last_modification_time="Mon, 12 Dec 2022 21:57:23 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">752</property>
+	  <property name="y">520</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Vote">
+	  <property name="width_request">200</property>
+	  <property name="height_request">100</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Vote</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Vote_clicked" last_modification_time="Mon, 12 Dec 2022 21:56:00 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">408</property>
+	  <property name="y">200</property>
 	</packing>
       </child>
     </widget>
@@ -6207,7 +6216,7 @@ Agent de bureau</property>
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="Btn_Exit">
+	<widget class="GtkButton" id="Btn_Exit6">
 	  <property name="width_request">200</property>
 	  <property name="height_request">50</property>
 	  <property name="visible">True</property>
@@ -6216,44 +6225,11 @@ Agent de bureau</property>
 	  <property name="use_underline">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Exit6_clicked" last_modification_time="Mon, 12 Dec 2022 21:58:28 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">80</property>
-	  <property name="y">552</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="Btn_Deconnexion">
-	  <property name="width_request">200</property>
-	  <property name="height_request">50</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Se déconnecter</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">712</property>
-	  <property name="y">552</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="GestionReclamation">
-	  <property name="width_request">200</property>
-	  <property name="height_request">100</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Gestion des réclamations</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">400</property>
-	  <property name="y">336</property>
+	  <property name="x">56</property>
+	  <property name="y">512</property>
 	</packing>
       </child>
 
@@ -6278,8 +6254,44 @@ Agent de bureau</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">424</property>
-	  <property name="y">200</property>
+	  <property name="x">376</property>
+	  <property name="y">136</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="Btn_Deconnexion6">
+	  <property name="width_request">200</property>
+	  <property name="height_request">50</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Se déconnecter</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_Btn_Deconnexion6_clicked" last_modification_time="Mon, 12 Dec 2022 21:58:43 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">664</property>
+	  <property name="y">512</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="GestionReclamation2">
+	  <property name="width_request">200</property>
+	  <property name="height_request">100</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Gestion des réclamations</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_GestionReclamation2_clicked" last_modification_time="Mon, 12 Dec 2022 21:58:15 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">352</property>
+	  <property name="y">248</property>
 	</packing>
       </child>
     </widget>
