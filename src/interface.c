@@ -96,6 +96,12 @@ create_GestionUtilisateur (void)
   GtkWidget *hbox6;
   GtkWidget *image5;
   GtkWidget *label38;
+  GtkWidget *Modif_Active;
+  GtkWidget *Modif_Actv;
+  GtkWidget *alignment102;
+  GtkWidget *hbox83;
+  GtkWidget *image82;
+  GtkWidget *label222;
   GtkWidget *Ajout_Utilisateur_Lbl;
   GtkWidget *hbox1;
   GtkWidget *fixed4;
@@ -481,6 +487,32 @@ create_GestionUtilisateur (void)
   gtk_widget_show (label38);
   gtk_box_pack_start (GTK_BOX (hbox6), label38, FALSE, FALSE, 0);
 
+  Modif_Active = gtk_label_new ("");
+  gtk_widget_show (Modif_Active);
+  gtk_fixed_put (GTK_FIXED (fixed1), Modif_Active, 760, 608);
+  gtk_widget_set_size_request (Modif_Active, 144, 16);
+
+  Modif_Actv = gtk_button_new ();
+  gtk_widget_show (Modif_Actv);
+  gtk_fixed_put (GTK_FIXED (fixed1), Modif_Actv, 760, 632);
+  gtk_widget_set_size_request (Modif_Actv, 152, 72);
+
+  alignment102 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment102);
+  gtk_container_add (GTK_CONTAINER (Modif_Actv), alignment102);
+
+  hbox83 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox83);
+  gtk_container_add (GTK_CONTAINER (alignment102), hbox83);
+
+  image82 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image82);
+  gtk_box_pack_start (GTK_BOX (hbox83), image82, FALSE, FALSE, 0);
+
+  label222 = gtk_label_new_with_mnemonic (_("Confirmer\nModification"));
+  gtk_widget_show (label222);
+  gtk_box_pack_start (GTK_BOX (hbox83), label222, FALSE, FALSE, 0);
+
   Ajout_Utilisateur_Lbl = gtk_label_new (_("Ajout"));
   gtk_widget_show (Ajout_Utilisateur_Lbl);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), Ajout_Utilisateur_Lbl);
@@ -743,6 +775,9 @@ create_GestionUtilisateur (void)
   g_signal_connect ((gpointer) Btn_Exit1, "leave",
                     G_CALLBACK (on_Btn_Exit_leave),
                     NULL);
+  g_signal_connect ((gpointer) Modif_Actv, "clicked",
+                    G_CALLBACK (on_Modif_Actv_clicked),
+                    NULL);
   g_signal_connect ((gpointer) AfficherUTL, "clicked",
                     G_CALLBACK (on_AfficherUTL_clicked),
                     NULL);
@@ -827,6 +862,12 @@ create_GestionUtilisateur (void)
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox6, "hbox6");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, image5, "image5");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, label38, "label38");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Modif_Active, "Modif_Active");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, Modif_Actv, "Modif_Actv");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, alignment102, "alignment102");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox83, "hbox83");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, image82, "image82");
+  GLADE_HOOKUP_OBJECT (GestionUtilisateur, label222, "label222");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, Ajout_Utilisateur_Lbl, "Ajout_Utilisateur_Lbl");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, hbox1, "hbox1");
   GLADE_HOOKUP_OBJECT (GestionUtilisateur, fixed4, "fixed4");
@@ -933,6 +974,7 @@ create_Identification (void)
   gtk_widget_show (id_Mdp);
   gtk_fixed_put (GTK_FIXED (fixed9), id_Mdp, 264, 208);
   gtk_widget_set_size_request (id_Mdp, 160, 27);
+  gtk_entry_set_visibility (GTK_ENTRY (id_Mdp), FALSE);
   gtk_entry_set_invisible_char (GTK_ENTRY (id_Mdp), 8226);
 
   Mdp = gtk_label_new (_("Mot de passe"));

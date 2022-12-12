@@ -149,3 +149,7 @@ on_Btn_Deconnexion_clicked             (GtkButton       *button,
 void
 on_Btn_Exit_clicked                    (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_Modif_Actv_clicked                  (GtkButton       *button,
+                                        gpointer         user_data);

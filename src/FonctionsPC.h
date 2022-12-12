@@ -21,7 +21,7 @@ typedef struct
 {
     char nom [30];
     char prenom [30];
-    char CIN [8];
+    char CIN [10];
     Date DateNaissance;
     char ID [30];
     char mdp [30];
@@ -45,7 +45,7 @@ typedef struct
 
 Utilisateur SaisirUtilisateur ();
 int ajouterUtilisateur (char * filename, Utilisateur p);
-int modifierUtilisateur( char * utilisateurs, int id, Utilisateur aux);
+int modifierUtilisateur( char * utilisateurs, char id, Utilisateur aux);
 int supprimerUtilisateur(char * utilisateurs, int id);
 int chercherUtilisateur(char * filename, int id);
 int VerifierConnexion (char * filename, Credentials c, int i);

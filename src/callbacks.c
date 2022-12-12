@@ -18,15 +18,17 @@ Credentials c;
 int i;
 int verifSupp=-1;
 
-int flag_Mod=-1;
+int flag_Mod;
 
 int id_modif;
+
+char convINT [30];
 
 
 void
 on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 {
-    flag_Mod=0;
+    //flag_Mod=0;
     
 
     /*GtkWidget * Nom_Utilisateur;
@@ -142,7 +144,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
         strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
         strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
         strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
-        modifierUtilisateur("Utilisateur.txt",id_modif,aux);
+        modifierUtilisateur("Utilisateur.txt",convINT,aux);
         flag_Mod=0;
     }
 
@@ -349,16 +351,29 @@ void
 on_ObservateurCmb_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-    if(gtk_toggle_button_get_active(togglebutton))
+
+    if(flag_Mod==1)
     {
+        if(gtk_toggle_button_get_active(togglebutton))
+        {
         utl.role[3]=1;
         /*if(flag_Mod==0)
             utl.role[3]=1;
         else if(flag_Mod==1)
             aux.role[3]=1;*/
+        }   
+        else
+        {
+            utl.role[3]=0;
+        }
     }
     else
-        utl.role[3]=0;
+    {
+        if (gtk_toggle_button_get_active(togglebutton))
+            utl.role[3]=1;
+        else
+            utl.role[3]=0;
+    }
 
 }
 
@@ -418,11 +433,12 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
                                         gpointer         user_data)
 {
 
-    flag_Mod=1;
-
-
     
-    char convINT [30];
+
+
+    flag_Mod=1;
+    
+    //char convINT [30];
 
     GtkWidget * Id_mod;
     GtkWidget * Notebook;
@@ -436,14 +452,16 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     Notebook=lookup_widget(button,"notebook1");
     strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
 
-    id_modif = atoi(convINT);
+    //id_modif = atoi(convINT);
     gtk_notebook_prev_page(Notebook);
     gtk_notebook_prev_page(Notebook);
+
+  
 
     
 
-    GtkWidget * Nom_Aux;
-    GtkWidget * Prenom_Aux; 
+    /*GtkWidget * Nom_Aux;
+    GtkWidget * Prenom_Aux; */
 
 
 
@@ -734,6 +752,111 @@ on_Btn_Exit_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
     gtk_main_quit();
+
+}
+
+
+void
+on_Modif_Actv_clicked                  (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    char confirmationMDP [30];
+
+    int flag_mod=1;
+
+
+    GtkWidget * Nom;
+    GtkWidget * Prenom;
+    GtkWidget * Genre_F;
+    GtkWidget * Genre_H; 
+    GtkWidget * AdminCb;
+    GtkWidget * AgentBureauCb;
+    GtkWidget * ElecteurCb;
+    GtkWidget * ObservateurCb;
+    GtkWidget * Obs_Presse;
+    GtkWidget * Obs_PartiePolitique;
+    GtkWidget * Obs_SV;
+    GtkWidget * Obs_Autre;
+    GtkWidget * Id;
+    GtkWidget * mdp;
+    GtkWidget * C_Mdp;
+    GtkWidget * Cin;
+    GtkWidget * ComboBV;
+
+    GtkWidget * Calendar;
+
+
+
+    GtkWidget * GestionUtilisateur;
+
+    GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
+    
+
+    Nom=lookup_widget(button, "Nom_Utilisateur");
+    Prenom=lookup_widget(button, "Prenom_Utilisateur");
+    Id=lookup_widget(button,"ID_utilisateur");
+    Cin=lookup_widget(button,"CIN_Utilisateur");
+    mdp=lookup_widget(button,"Mdp_Utilisateur");
+    C_Mdp=lookup_widget(button,"V_Mdp_Utilisateur");
+
+    ComboBV=lookup_widget(button,"combobox1");
+
+    Calendar=lookup_widget(button,"calendar1");
+
+    gtk_calendar_get_date(Calendar,&utl.DateNaissance.jours,&utl.DateNaissance.mois,&utl.DateNaissance.annee);
+
+
+
+
+    /*strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
+    strcpy(utl.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
+    strcpy(utl.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
+    strcpy(utl.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
+    strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
+    strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));*/
+
+
+    
+        strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
+        strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
+        strcpy(aux.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
+        strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
+        strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
+        strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+        aux.v.vote=-1;
+
+
+        if(strcmp("Arrondissement 1",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=1;
+        }
+        else if(strcmp("Arrondissement 2",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=2;
+        }
+        else if(strcmp("Arrondissement 3",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=3;
+        }
+        else if(strcmp("Arrondissement 4",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=4;
+        }
+        else if(strcmp("Arrondissement 5",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=5;
+        }
+        else if(strcmp("Arrondissement 6",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        {
+            aux.BV=6;
+        }
+
+        modifierUtilisateur("Utilisateur.txt",convINT,aux);
+
+        flag_mod=0;
+
+
 
 }
 
