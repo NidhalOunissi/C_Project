@@ -356,7 +356,7 @@ on_ObservateurCmb_toggled              (GtkToggleButton *togglebutton,
     {
         if(gtk_toggle_button_get_active(togglebutton))
         {
-        utl.role[3]=1;
+        aux.role[3]=1;
         /*if(flag_Mod==0)
             utl.role[3]=1;
         else if(flag_Mod==1)
@@ -364,7 +364,7 @@ on_ObservateurCmb_toggled              (GtkToggleButton *togglebutton,
         }   
         else
         {
-            utl.role[3]=0;
+            aux.role[3]=0;
         }
     }
     else
@@ -763,98 +763,84 @@ on_Modif_Actv_clicked                  (GtkButton       *button,
 
     char confirmationMDP [30];
 
-    int flag_mod=1;
-
-
-    GtkWidget * Nom;
-    GtkWidget * Prenom;
-    GtkWidget * Genre_F;
-    GtkWidget * Genre_H; 
-    GtkWidget * AdminCb;
-    GtkWidget * AgentBureauCb;
-    GtkWidget * ElecteurCb;
-    GtkWidget * ObservateurCb;
-    GtkWidget * Obs_Presse;
-    GtkWidget * Obs_PartiePolitique;
-    GtkWidget * Obs_SV;
-    GtkWidget * Obs_Autre;
-    GtkWidget * Id;
-    GtkWidget * mdp;
-    GtkWidget * C_Mdp;
-    GtkWidget * Cin;
-    GtkWidget * ComboBV;
-
-    GtkWidget * Calendar;
-
-
-
-    GtkWidget * GestionUtilisateur;
-
-    GestionUtilisateur=lookup_widget(button,"GestionUtilisateur");
     
 
-    Nom=lookup_widget(button, "Nom_Utilisateur");
-    Prenom=lookup_widget(button, "Prenom_Utilisateur");
-    Id=lookup_widget(button,"ID_utilisateur");
-    Cin=lookup_widget(button,"CIN_Utilisateur");
-    mdp=lookup_widget(button,"Mdp_Utilisateur");
-    C_Mdp=lookup_widget(button,"V_Mdp_Utilisateur");
 
-    ComboBV=lookup_widget(button,"combobox1");
+    GtkWidget * Nom_Modif;
+    GtkWidget * Prenom_Modif;
+    GtkWidget * Genre_F_Modif;
+    GtkWidget * Genre_H_Modif; 
+    GtkWidget * AdminCb_Modif;
+    GtkWidget * AgentBureauCb_Modif;
+    GtkWidget * ElecteurCb_Modif;
+    GtkWidget * ObservateurCb_Modif;
+    GtkWidget * Id_Modif;
+    GtkWidget * mdp_Modif;
+    GtkWidget * C_Mdp_Modif;
+    GtkWidget * Cin_Modif;
+    GtkWidget * ComboBV_Modif;
 
-    Calendar=lookup_widget(button,"calendar1");
-
-    gtk_calendar_get_date(Calendar,&utl.DateNaissance.jours,&utl.DateNaissance.mois,&utl.DateNaissance.annee);
-
-
-
-
-    /*strcpy(utl.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
-    strcpy(utl.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
-    strcpy(utl.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
-    strcpy(utl.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
-    strcpy(utl.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
-    strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));*/
+    GtkWidget * Calendar_Modif;
 
 
+
+    GtkWidget * GestionUtilisateur_Modif;
+
+    GestionUtilisateur_Modif=lookup_widget(button,"GestionUtilisateur");
     
-        strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
-        strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
-        strcpy(aux.ID,gtk_entry_get_text(GTK_ENTRY(Id)));
-        strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin)));
-        strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp)));
-        strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
+
+    Nom_Modif=lookup_widget(button, "Nom_Utilisateur");
+    Prenom_Modif=lookup_widget(button, "Prenom_Utilisateur");
+    Id_Modif=lookup_widget(button,"ID_utilisateur");
+    Cin_Modif=lookup_widget(button,"CIN_Utilisateur");
+    mdp_Modif=lookup_widget(button,"Mdp_Utilisateur");
+    C_Mdp_Modif=lookup_widget(button,"V_Mdp_Utilisateur");
+
+    ComboBV_Modif=lookup_widget(button,"combobox1");
+
+    Calendar_Modif=lookup_widget(button,"calendar1");
+
+    gtk_calendar_get_date(Calendar_Modif,&utl.DateNaissance.jours,&utl.DateNaissance.mois,&utl.DateNaissance.annee);
+
+
+
+        strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom_Modif)));
+        strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom_Modif)));
+        strcpy(aux.ID,gtk_entry_get_text(GTK_ENTRY(Id_Modif)));
+        strcpy(aux.CIN,gtk_entry_get_text(GTK_ENTRY(Cin_Modif)));
+        strcpy(aux.mdp,gtk_entry_get_text(GTK_ENTRY(mdp_Modif)));
+        strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp_Modif)));
         aux.v.vote=-1;
 
 
-        if(strcmp("Arrondissement 1",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        if(strcmp("Arrondissement 1",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=1;
         }
-        else if(strcmp("Arrondissement 2",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        else if(strcmp("Arrondissement 2",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=2;
         }
-        else if(strcmp("Arrondissement 3",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        else if(strcmp("Arrondissement 3",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=3;
         }
-        else if(strcmp("Arrondissement 4",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        else if(strcmp("Arrondissement 4",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=4;
         }
-        else if(strcmp("Arrondissement 5",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        else if(strcmp("Arrondissement 5",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=5;
         }
-        else if(strcmp("Arrondissement 6",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV))))==0)
+        else if(strcmp("Arrondissement 6",(gtk_combo_box_get_active_text(GTK_COMBO_BOX(ComboBV_Modif))))==0)
         {
             aux.BV=6;
         }
 
         modifierUtilisateur("Utilisateur.txt",convINT,aux);
 
-        flag_mod=0;
+        flag_Mod=0;
 
 
 

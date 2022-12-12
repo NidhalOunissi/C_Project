@@ -58,7 +58,8 @@ int ajouterUtilisateur (char * filename, Utilisateur p)
 int modifierUtilisateur( char * filename, char id, Utilisateur aux)
 {
     int tr=0;
-    int conv;
+    int conv=0;
+    char ax [30];
     Utilisateur p;
     FILE * f=fopen(filename, "r");
     FILE * f2=fopen("nouv.txt", "w");
@@ -66,8 +67,8 @@ int modifierUtilisateur( char * filename, char id, Utilisateur aux)
     {
         while(fscanf(f,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,&p.DateNaissance.jours,&p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
         {
-            //sprintf(p.ID,"%d",conv);
-            if(strcmp(p.ID,id)==0)
+
+            if(strcmp(p.ID,id))
             {
                 //aux=SaisirUtilisateur();
                 fprintf(f2,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",aux.nom,aux.prenom,aux.CIN,aux.DateNaissance.jours,aux.DateNaissance.mois,aux.DateNaissance.annee,aux.ID,aux.mdp,aux.genre,aux.role[0],aux.role[1],aux.role[2],aux.role[3],aux.BV,aux.v.vote);
