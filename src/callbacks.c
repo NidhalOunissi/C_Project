@@ -968,3 +968,107 @@ on_Vote_clicked                        (GtkButton       *button,
 
 }
 
+
+void
+on_Btn_Exit6_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_Btn_Deconnexion6_clicked            (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_GestionReclamation2_clicked         (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_HommeModif_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_FemmeModif_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_EtrangerModif_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_TunisienModif_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_PosteAdminModif_toggled             (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_AgentBureauModif_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_ObservateurModif_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_ReinitialiserModif_clicked          (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_ModiferBtn_clicked                  (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_Exit7_clicked                       (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+

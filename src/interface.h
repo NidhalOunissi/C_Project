@@ -20,3 +20,4 @@ GtkWidget* create_filechooserdialog1 (void);
 GtkWidget* create_inputdialog1 (void);
 GtkWidget* create_menu1 (void);
 GtkWidget* create_inputdialog2 (void);
+GtkWidget* create_ModificationUtilisateur (void);
