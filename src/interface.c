@@ -5499,42 +5499,31 @@ create_ModificationUtilisateur (void)
   GtkWidget *frame20;
   GtkWidget *alignment103;
   GtkWidget *fixed36;
-  GtkWidget *entry34;
-  GtkWidget *entry35;
-  GtkWidget *calendar3;
-  GtkWidget *PrenomModif;
   GtkWidget *NomModif;
+  GtkWidget *PrenomModif;
+  GtkWidget *calendar3;
   GtkWidget *GenreModif;
   GtkWidget *DateNaissanceModif;
   GtkWidget *NationaliteModif;
   GtkWidget *HommeModif;
   GSList *HommeModif_group = NULL;
-  GtkWidget *FemmeModif;
   GtkWidget *EtrangerModif;
   GtkWidget *TunisienModif;
+  GtkWidget *FemmeModif;
+  GtkWidget *NomModiflbl;
+  GtkWidget *PrenomModiflbl;
   GtkWidget *label226;
-  GtkWidget *frame21;
-  GtkWidget *alignment104;
-  GtkWidget *fixed37;
-  GtkWidget *label234;
-  GtkWidget *ArrondissementModif;
-  GtkWidget *label233;
-  GtkWidget *PosteAdminModif;
-  GtkWidget *AgentBureauModif;
-  GtkWidget *PosteElecteurModif;
-  GtkWidget *ObservateurModif;
-  GtkWidget *frame21;
   GtkWidget *frame22;
   GtkWidget *alignment105;
   GtkWidget *fixed38;
+  GtkWidget *CINModif;
+  GtkWidget *IDModif;
+  GtkWidget *MdpModif;
+  GtkWidget *CMdpModif;
   GtkWidget *label236;
-  GtkWidget *entry36;
-  GtkWidget *entry37;
   GtkWidget *label237;
   GtkWidget *label238;
-  GtkWidget *entry38;
   GtkWidget *label239;
-  GtkWidget *entry39;
   GtkWidget *label235;
   GtkWidget *label250;
   GtkWidget *label247;
@@ -5559,6 +5548,17 @@ create_ModificationUtilisateur (void)
   GtkWidget *label248;
   GtkWidget *label246;
   GtkWidget *label243;
+  GtkWidget *frame21;
+  GtkWidget *alignment104;
+  GtkWidget *fixed37;
+  GtkWidget *label234;
+  GtkWidget *label233;
+  GtkWidget *PosteAdminModif;
+  GtkWidget *AgentBureauModif;
+  GtkWidget *ArrondissementModif;
+  GtkWidget *ObservateurModif;
+  GtkWidget *PosteElecteurModif;
+  GtkWidget *lbl;
 
   ModificationUtilisateur = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (ModificationUtilisateur), _("Modification"));
@@ -5582,17 +5582,17 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (fixed36);
   gtk_container_add (GTK_CONTAINER (alignment103), fixed36);
 
-  entry34 = gtk_entry_new ();
-  gtk_widget_show (entry34);
-  gtk_fixed_put (GTK_FIXED (fixed36), entry34, 216, 40);
-  gtk_widget_set_size_request (entry34, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry34), 8226);
+  NomModif = gtk_entry_new ();
+  gtk_widget_show (NomModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), NomModif, 216, 40);
+  gtk_widget_set_size_request (NomModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (NomModif), 8226);
 
-  entry35 = gtk_entry_new ();
-  gtk_widget_show (entry35);
-  gtk_fixed_put (GTK_FIXED (fixed36), entry35, 216, 88);
-  gtk_widget_set_size_request (entry35, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry35), 8226);
+  PrenomModif = gtk_entry_new ();
+  gtk_widget_show (PrenomModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), PrenomModif, 216, 88);
+  gtk_widget_set_size_request (PrenomModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (PrenomModif), 8226);
 
   calendar3 = gtk_calendar_new ();
   gtk_widget_show (calendar3);
@@ -5601,16 +5601,6 @@ create_ModificationUtilisateur (void)
   gtk_calendar_display_options (GTK_CALENDAR (calendar3),
                                 GTK_CALENDAR_SHOW_HEADING
                                 | GTK_CALENDAR_SHOW_DAY_NAMES);
-
-  PrenomModif = gtk_label_new (_("Prenom"));
-  gtk_widget_show (PrenomModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), PrenomModif, 32, 96);
-  gtk_widget_set_size_request (PrenomModif, 57, 17);
-
-  NomModif = gtk_label_new (_("Nom"));
-  gtk_widget_show (NomModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), NomModif, 24, 40);
-  gtk_widget_set_size_request (NomModif, 57, 17);
 
   GenreModif = gtk_label_new (_("Genre"));
   gtk_widget_show (GenreModif);
@@ -5634,13 +5624,6 @@ create_ModificationUtilisateur (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (HommeModif), HommeModif_group);
   HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (HommeModif));
 
-  FemmeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
-  gtk_widget_show (FemmeModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), FemmeModif, 208, 144);
-  gtk_widget_set_size_request (FemmeModif, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (FemmeModif), HommeModif_group);
-  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (FemmeModif));
-
   EtrangerModif = gtk_radio_button_new_with_mnemonic (NULL, _("Etranger(e)"));
   gtk_widget_show (EtrangerModif);
   gtk_fixed_put (GTK_FIXED (fixed36), EtrangerModif, 208, 408);
@@ -5655,68 +5638,27 @@ create_ModificationUtilisateur (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (TunisienModif), HommeModif_group);
   HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (TunisienModif));
 
+  FemmeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
+  gtk_widget_show (FemmeModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), FemmeModif, 208, 144);
+  gtk_widget_set_size_request (FemmeModif, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (FemmeModif), HommeModif_group);
+  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (FemmeModif));
+
+  NomModiflbl = gtk_label_new (_("Nom"));
+  gtk_widget_show (NomModiflbl);
+  gtk_fixed_put (GTK_FIXED (fixed36), NomModiflbl, 24, 40);
+  gtk_widget_set_size_request (NomModiflbl, 57, 17);
+
+  PrenomModiflbl = gtk_label_new (_("Prenom"));
+  gtk_widget_show (PrenomModiflbl);
+  gtk_fixed_put (GTK_FIXED (fixed36), PrenomModiflbl, 32, 96);
+  gtk_widget_set_size_request (PrenomModiflbl, 57, 17);
+
   label226 = gtk_label_new (_("<b>Informations G\303\251n\303\251rales</b>"));
   gtk_widget_show (label226);
   gtk_frame_set_label_widget (GTK_FRAME (frame20), label226);
   gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
-
-  frame21 = gtk_frame_new (NULL);
-  gtk_widget_show (frame21);
-  gtk_fixed_put (GTK_FIXED (fixed35), frame21, 80, 560);
-  gtk_widget_set_size_request (frame21, 592, 280);
-  gtk_frame_set_shadow_type (GTK_FRAME (frame21), GTK_SHADOW_NONE);
-
-  alignment104 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment104);
-  gtk_container_add (GTK_CONTAINER (frame21), alignment104);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment104), 0, 0, 12, 0);
-
-  fixed37 = gtk_fixed_new ();
-  gtk_widget_show (fixed37);
-  gtk_container_add (GTK_CONTAINER (alignment104), fixed37);
-
-  label234 = gtk_label_new (_("Arrondissement"));
-  gtk_widget_show (label234);
-  gtk_fixed_put (GTK_FIXED (fixed37), label234, 16, 208);
-  gtk_widget_set_size_request (label234, 128, 16);
-
-  ArrondissementModif = gtk_combo_box_new_text ();
-  gtk_widget_show (ArrondissementModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), ArrondissementModif, 248, 200);
-  gtk_widget_set_size_request (ArrondissementModif, 184, 39);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 1"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 2"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 3"));
-
-  label233 = gtk_label_new (_("Poste"));
-  gtk_widget_show (label233);
-  gtk_fixed_put (GTK_FIXED (fixed37), label233, 24, 88);
-  gtk_widget_set_size_request (label233, 57, 17);
-
-  PosteAdminModif = gtk_check_button_new_with_mnemonic (_("Admin"));
-  gtk_widget_show (PosteAdminModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), PosteAdminModif, 144, 56);
-  gtk_widget_set_size_request (PosteAdminModif, 118, 24);
-
-  AgentBureauModif = gtk_check_button_new_with_mnemonic (_("Agent de bureau"));
-  gtk_widget_show (AgentBureauModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), AgentBureauModif, 360, 56);
-  gtk_widget_set_size_request (AgentBureauModif, 152, 24);
-
-  PosteElecteurModif = gtk_check_button_new_with_mnemonic (_("Electeur"));
-  gtk_widget_show (PosteElecteurModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), PosteElecteurModif, 144, 112);
-  gtk_widget_set_size_request (PosteElecteurModif, 118, 24);
-
-  ObservateurModif = gtk_check_button_new_with_mnemonic (_("Observateur"));
-  gtk_widget_show (ObservateurModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), ObservateurModif, 360, 112);
-  gtk_widget_set_size_request (ObservateurModif, 118, 24);
-
-  frame21 = gtk_label_new (_("<b>Poste et Arrondissement</b>"));
-  gtk_widget_show (frame21);
-  gtk_frame_set_label_widget (GTK_FRAME (frame21), frame21);
-  gtk_label_set_use_markup (GTK_LABEL (frame21), TRUE);
 
   frame22 = gtk_frame_new (NULL);
   gtk_widget_show (frame22);
@@ -5733,22 +5675,34 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (fixed38);
   gtk_container_add (GTK_CONTAINER (alignment105), fixed38);
 
+  CINModif = gtk_entry_new ();
+  gtk_widget_show (CINModif);
+  gtk_fixed_put (GTK_FIXED (fixed38), CINModif, 200, 56);
+  gtk_widget_set_size_request (CINModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (CINModif), 8226);
+
+  IDModif = gtk_entry_new ();
+  gtk_widget_show (IDModif);
+  gtk_fixed_put (GTK_FIXED (fixed38), IDModif, 200, 104);
+  gtk_widget_set_size_request (IDModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (IDModif), 8226);
+
+  MdpModif = gtk_entry_new ();
+  gtk_widget_show (MdpModif);
+  gtk_fixed_put (GTK_FIXED (fixed38), MdpModif, 200, 160);
+  gtk_widget_set_size_request (MdpModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (MdpModif), 8226);
+
+  CMdpModif = gtk_entry_new ();
+  gtk_widget_show (CMdpModif);
+  gtk_fixed_put (GTK_FIXED (fixed38), CMdpModif, 200, 224);
+  gtk_widget_set_size_request (CMdpModif, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (CMdpModif), 8226);
+
   label236 = gtk_label_new (_("CIN"));
   gtk_widget_show (label236);
   gtk_fixed_put (GTK_FIXED (fixed38), label236, 72, 64);
   gtk_widget_set_size_request (label236, 57, 17);
-
-  entry36 = gtk_entry_new ();
-  gtk_widget_show (entry36);
-  gtk_fixed_put (GTK_FIXED (fixed38), entry36, 200, 56);
-  gtk_widget_set_size_request (entry36, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry36), 8226);
-
-  entry37 = gtk_entry_new ();
-  gtk_widget_show (entry37);
-  gtk_fixed_put (GTK_FIXED (fixed38), entry37, 200, 104);
-  gtk_widget_set_size_request (entry37, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry37), 8226);
 
   label237 = gtk_label_new (_("ID"));
   gtk_widget_show (label237);
@@ -5760,22 +5714,10 @@ create_ModificationUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed38), label238, 48, 168);
   gtk_widget_set_size_request (label238, 96, 16);
 
-  entry38 = gtk_entry_new ();
-  gtk_widget_show (entry38);
-  gtk_fixed_put (GTK_FIXED (fixed38), entry38, 200, 160);
-  gtk_widget_set_size_request (entry38, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry38), 8226);
-
   label239 = gtk_label_new (_("Confirmer Mot\n de passe"));
   gtk_widget_show (label239);
   gtk_fixed_put (GTK_FIXED (fixed38), label239, 40, 224);
   gtk_widget_set_size_request (label239, 120, 39);
-
-  entry39 = gtk_entry_new ();
-  gtk_widget_show (entry39);
-  gtk_fixed_put (GTK_FIXED (fixed38), entry39, 200, 224);
-  gtk_widget_set_size_request (entry39, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry39), 8226);
 
   label235 = gtk_label_new (_("<b>Modification ID et Mot de passe</b>"));
   gtk_widget_show (label235);
@@ -5886,11 +5828,66 @@ create_ModificationUtilisateur (void)
   gtk_widget_set_size_request (label243, 57, 17);
   gtk_misc_set_alignment (GTK_MISC (label243), 0.5, 0.62);
 
+  frame21 = gtk_frame_new (NULL);
+  gtk_widget_show (frame21);
+  gtk_fixed_put (GTK_FIXED (fixed35), frame21, 80, 560);
+  gtk_widget_set_size_request (frame21, 592, 280);
+  gtk_frame_set_shadow_type (GTK_FRAME (frame21), GTK_SHADOW_NONE);
+
+  alignment104 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment104);
+  gtk_container_add (GTK_CONTAINER (frame21), alignment104);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment104), 0, 0, 12, 0);
+
+  fixed37 = gtk_fixed_new ();
+  gtk_widget_show (fixed37);
+  gtk_container_add (GTK_CONTAINER (alignment104), fixed37);
+
+  label234 = gtk_label_new (_("Arrondissement"));
+  gtk_widget_show (label234);
+  gtk_fixed_put (GTK_FIXED (fixed37), label234, 16, 208);
+  gtk_widget_set_size_request (label234, 128, 16);
+
+  label233 = gtk_label_new (_("Poste"));
+  gtk_widget_show (label233);
+  gtk_fixed_put (GTK_FIXED (fixed37), label233, 24, 88);
+  gtk_widget_set_size_request (label233, 57, 17);
+
+  PosteAdminModif = gtk_check_button_new_with_mnemonic (_("Admin"));
+  gtk_widget_show (PosteAdminModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), PosteAdminModif, 144, 56);
+  gtk_widget_set_size_request (PosteAdminModif, 118, 24);
+
+  AgentBureauModif = gtk_check_button_new_with_mnemonic (_("Agent de bureau"));
+  gtk_widget_show (AgentBureauModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), AgentBureauModif, 360, 56);
+  gtk_widget_set_size_request (AgentBureauModif, 152, 24);
+
+  ArrondissementModif = gtk_combo_box_new_text ();
+  gtk_widget_show (ArrondissementModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), ArrondissementModif, 248, 200);
+  gtk_widget_set_size_request (ArrondissementModif, 184, 39);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 1"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 2"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 3"));
+
+  ObservateurModif = gtk_check_button_new_with_mnemonic (_("Observateur"));
+  gtk_widget_show (ObservateurModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), ObservateurModif, 360, 112);
+  gtk_widget_set_size_request (ObservateurModif, 118, 24);
+
+  PosteElecteurModif = gtk_check_button_new_with_mnemonic (_("Electeur"));
+  gtk_widget_show (PosteElecteurModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), PosteElecteurModif, 144, 112);
+  gtk_widget_set_size_request (PosteElecteurModif, 118, 24);
+
+  lbl = gtk_label_new (_("<b>Poste et Arrondissement</b>"));
+  gtk_widget_show (lbl);
+  gtk_frame_set_label_widget (GTK_FRAME (frame21), lbl);
+  gtk_label_set_use_markup (GTK_LABEL (lbl), TRUE);
+
   g_signal_connect ((gpointer) HommeModif, "toggled",
                     G_CALLBACK (on_HommeModif_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) FemmeModif, "toggled",
-                    G_CALLBACK (on_FemmeModif_toggled),
                     NULL);
   g_signal_connect ((gpointer) EtrangerModif, "toggled",
                     G_CALLBACK (on_EtrangerModif_toggled),
@@ -5898,14 +5895,8 @@ create_ModificationUtilisateur (void)
   g_signal_connect ((gpointer) TunisienModif, "toggled",
                     G_CALLBACK (on_TunisienModif_toggled),
                     NULL);
-  g_signal_connect ((gpointer) PosteAdminModif, "toggled",
-                    G_CALLBACK (on_PosteAdminModif_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) AgentBureauModif, "toggled",
-                    G_CALLBACK (on_AgentBureauModif_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) ObservateurModif, "toggled",
-                    G_CALLBACK (on_ObservateurModif_toggled),
+  g_signal_connect ((gpointer) FemmeModif, "toggled",
+                    G_CALLBACK (on_FemmeModif_toggled),
                     NULL);
   g_signal_connect ((gpointer) ReinitialiserModif, "clicked",
                     G_CALLBACK (on_ReinitialiserModif_clicked),
@@ -5916,6 +5907,18 @@ create_ModificationUtilisateur (void)
   g_signal_connect ((gpointer) Exit7, "clicked",
                     G_CALLBACK (on_Exit7_clicked),
                     NULL);
+  g_signal_connect ((gpointer) PosteAdminModif, "toggled",
+                    G_CALLBACK (on_PosteAdminModif_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) AgentBureauModif, "toggled",
+                    G_CALLBACK (on_AgentBureauModif_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) ObservateurModif, "toggled",
+                    G_CALLBACK (on_ObservateurModif_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) PosteElecteurModif, "toggled",
+                    G_CALLBACK (on_PosteElecteurModif_toggled),
+                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (ModificationUtilisateur, ModificationUtilisateur, "ModificationUtilisateur");
@@ -5923,41 +5926,30 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame20, "frame20");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment103, "alignment103");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, fixed36, "fixed36");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry34, "entry34");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry35, "entry35");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, calendar3, "calendar3");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PrenomModif, "PrenomModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, NomModif, "NomModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PrenomModif, "PrenomModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, calendar3, "calendar3");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, GenreModif, "GenreModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, DateNaissanceModif, "DateNaissanceModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, NationaliteModif, "NationaliteModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, HommeModif, "HommeModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, FemmeModif, "FemmeModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, EtrangerModif, "EtrangerModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, TunisienModif, "TunisienModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, FemmeModif, "FemmeModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, NomModiflbl, "NomModiflbl");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PrenomModiflbl, "PrenomModiflbl");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label226, "label226");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame21, "frame21");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment104, "alignment104");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, fixed37, "fixed37");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label234, "label234");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ArrondissementModif, "ArrondissementModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label233, "label233");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteAdminModif, "PosteAdminModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, AgentBureauModif, "AgentBureauModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteElecteurModif, "PosteElecteurModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ObservateurModif, "ObservateurModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame21, "frame21");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame22, "frame22");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment105, "alignment105");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, fixed38, "fixed38");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, CINModif, "CINModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, IDModif, "IDModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, MdpModif, "MdpModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, CMdpModif, "CMdpModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label236, "label236");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry36, "entry36");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry37, "entry37");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label237, "label237");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label238, "label238");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry38, "entry38");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label239, "label239");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, entry39, "entry39");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label235, "label235");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label250, "label250");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label247, "label247");
@@ -5982,6 +5974,17 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label248, "label248");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label246, "label246");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label243, "label243");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame21, "frame21");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment104, "alignment104");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, fixed37, "fixed37");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label234, "label234");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label233, "label233");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteAdminModif, "PosteAdminModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, AgentBureauModif, "AgentBureauModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ArrondissementModif, "ArrondissementModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ObservateurModif, "ObservateurModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteElecteurModif, "PosteElecteurModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, lbl, "lbl");
 
   return ModificationUtilisateur;
 }

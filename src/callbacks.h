@@ -241,3 +241,7 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
 void
 on_Exit7_clicked                       (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_PosteElecteurModif_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
