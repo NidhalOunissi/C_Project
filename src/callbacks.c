@@ -28,7 +28,7 @@ char convINT [30];
 void
 on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 {
-    //flag_Mod=0;
+    flag_Mod=0;
     
 
     /*GtkWidget * Nom_Utilisateur;
@@ -136,7 +136,9 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
 
         ajouterUtilisateur("Utilisateur.txt",utl);
     }
-    else if (flag_Mod==1)
+
+
+    /*else if (flag_Mod==1)
     {   
         strcpy(aux.nom,gtk_entry_get_text(GTK_ENTRY(Nom)));
         strcpy(aux.prenom,gtk_entry_get_text(GTK_ENTRY(Prenom)));
@@ -146,7 +148,7 @@ on_Ajout_Utilisateur_clicked           (GtkButton *button, gpointer user_data)
         strcpy(confirmationMDP,gtk_entry_get_text(GTK_ENTRY(C_Mdp)));
         modifierUtilisateur("Utilisateur.txt",convINT,aux);
         flag_Mod=0;
-    }
+    }*/
 
 
 
@@ -441,12 +443,11 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
 
     GtkWidget * ModificationUtilisateur;
 
-    //gint PageNum;
-    //PageNum = gtk_notebook_get_current_page(GTK_NOTEBOOK(Notebook));
 
     Id_mod=lookup_widget(button,"ID_Modif");
     Notebook=lookup_widget(button,"notebook1");
     strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
+
     //id_modif = atoi(convINT);
     //gtk_notebook_prev_page(Notebook);
     //gtk_notebook_prev_page(Notebook);
@@ -618,11 +619,11 @@ on_Supprimer_Utilisateur_clicked       (GtkButton       *button,
 
     ID_Supp=lookup_widget(button,"entrySupp");
     strcpy(supp,gtk_entry_get_text(GTK_ENTRY(ID_Supp)));
-    id=atoi(supp);
+    //id=atoi(supp);
 
     if(verifSupp==1)
     {
-    supprimerUtilisateur("Utilisateur.txt",id);
+    supprimerUtilisateur("Utilisateur.txt",supp);
     }
 
 }
@@ -756,6 +757,7 @@ void
 on_Modif_Actv_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
+    /*
 
     char confirmationMDP [30];
 
@@ -839,7 +841,7 @@ on_Modif_Actv_clicked                  (GtkButton       *button,
         flag_Mod=0;
 
 
-
+*/
 }
 
 
@@ -969,6 +971,7 @@ void
 on_Btn_Exit6_clicked                   (GtkButton       *button,
                                         gpointer         user_data)
 {
+    gtk_main_quit();
 
 }
 
@@ -1128,7 +1131,7 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
 
     GtkWidget * GestionUtilisateur_Modif;
 
-    GestionUtilisateur_Modif=lookup_widget(button,"GestionUtilisateur");
+    GestionUtilisateur_Modif=lookup_widget(button,"ModificationUtilisateur");
     
 
     Nom_Modif=lookup_widget(button, "NomModif");
@@ -1142,7 +1145,7 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
 
     Calendar_Modif=lookup_widget(button,"calendar3");
 
-    gtk_calendar_get_date(Calendar_Modif,&utl.DateNaissance.jours,&utl.DateNaissance.mois,&utl.DateNaissance.annee);
+    gtk_calendar_get_date(Calendar_Modif,&aux.DateNaissance.jours,&aux.DateNaissance.mois,&aux.DateNaissance.annee);
 
 
 
@@ -1179,8 +1182,12 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
         {
             aux.BV=6;
         }
+        
+        int test5=0;
 
-        modifierUtilisateur("Utilisateur.txt",convINT,aux);
+        test5=modifierUtilisateur("Utilisateur.txt",convINT,aux);
+
+        printf("%d",test5);
 
         flag_Mod=0;
 
@@ -1193,7 +1200,10 @@ void
 on_Exit7_clicked                       (GtkButton       *button,
                                         gpointer         user_data)
 {
-    gtk_main_quit();
+    GtkWidget * ModificationUtilisateur;
+   
+    ModificationUtilisateur=lookup_widget(button,"ModificationUtilisateur");
+    gtk_widget_hide(ModificationUtilisateur);
 
 }
 

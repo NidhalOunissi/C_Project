@@ -45,8 +45,8 @@ typedef struct
 
 Utilisateur SaisirUtilisateur ();
 int ajouterUtilisateur (char * filename, Utilisateur p);
-int modifierUtilisateur( char * filename, char id, Utilisateur aux);
-int supprimerUtilisateur(char * utilisateurs, int id);
+int modifierUtilisateur( char * filename, char id [], Utilisateur aux);
+int supprimerUtilisateur(char * utilisateurs, char id []);
 int chercherUtilisateur(char * filename, int id);
 int VerifierConnexion (char * filename, Credentials c, int i);
 void AfficherUtl (GtkWidget *liste);

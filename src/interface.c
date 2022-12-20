@@ -5555,9 +5555,9 @@ create_ModificationUtilisateur (void)
   GtkWidget *label233;
   GtkWidget *PosteAdminModif;
   GtkWidget *AgentBureauModif;
-  GtkWidget *ArrondissementModif;
   GtkWidget *ObservateurModif;
   GtkWidget *PosteElecteurModif;
+  GtkWidget *ArrondissementModif;
   GtkWidget *lbl;
 
   ModificationUtilisateur = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -5679,12 +5679,14 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (CINModif);
   gtk_fixed_put (GTK_FIXED (fixed38), CINModif, 200, 56);
   gtk_widget_set_size_request (CINModif, 160, 27);
+  gtk_entry_set_max_length (GTK_ENTRY (CINModif), 8);
   gtk_entry_set_invisible_char (GTK_ENTRY (CINModif), 8226);
 
   IDModif = gtk_entry_new ();
   gtk_widget_show (IDModif);
   gtk_fixed_put (GTK_FIXED (fixed38), IDModif, 200, 104);
   gtk_widget_set_size_request (IDModif, 160, 27);
+  gtk_entry_set_max_length (GTK_ENTRY (IDModif), 12);
   gtk_entry_set_invisible_char (GTK_ENTRY (IDModif), 8226);
 
   MdpModif = gtk_entry_new ();
@@ -5863,14 +5865,6 @@ create_ModificationUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed37), AgentBureauModif, 360, 56);
   gtk_widget_set_size_request (AgentBureauModif, 152, 24);
 
-  ArrondissementModif = gtk_combo_box_new_text ();
-  gtk_widget_show (ArrondissementModif);
-  gtk_fixed_put (GTK_FIXED (fixed37), ArrondissementModif, 248, 200);
-  gtk_widget_set_size_request (ArrondissementModif, 184, 39);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 1"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 2"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 3"));
-
   ObservateurModif = gtk_check_button_new_with_mnemonic (_("Observateur"));
   gtk_widget_show (ObservateurModif);
   gtk_fixed_put (GTK_FIXED (fixed37), ObservateurModif, 360, 112);
@@ -5880,6 +5874,17 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (PosteElecteurModif);
   gtk_fixed_put (GTK_FIXED (fixed37), PosteElecteurModif, 144, 112);
   gtk_widget_set_size_request (PosteElecteurModif, 118, 24);
+
+  ArrondissementModif = gtk_combo_box_new_text ();
+  gtk_widget_show (ArrondissementModif);
+  gtk_fixed_put (GTK_FIXED (fixed37), ArrondissementModif, 248, 200);
+  gtk_widget_set_size_request (ArrondissementModif, 184, 39);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 1"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 2"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 3"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 4"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 5"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (ArrondissementModif), _("Arrondissement 6"));
 
   lbl = gtk_label_new (_("<b>Poste et Arrondissement</b>"));
   gtk_widget_show (lbl);
@@ -5981,9 +5986,9 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label233, "label233");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteAdminModif, "PosteAdminModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, AgentBureauModif, "AgentBureauModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ArrondissementModif, "ArrondissementModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ObservateurModif, "ObservateurModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteElecteurModif, "PosteElecteurModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ArrondissementModif, "ArrondissementModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, lbl, "lbl");
 
   return ModificationUtilisateur;

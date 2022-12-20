@@ -55,7 +55,7 @@ int ajouterUtilisateur (char * filename, Utilisateur p)
     else return 0;
 }
 
-int modifierUtilisateur( char * filename, char id, Utilisateur aux)
+int modifierUtilisateur( char * filename, char id [], Utilisateur aux)
 {
     int tr=0;
     int conv=0;
@@ -68,7 +68,7 @@ int modifierUtilisateur( char * filename, char id, Utilisateur aux)
         while(fscanf(f,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,&p.DateNaissance.jours,&p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
         {
 
-            if(strcmp(p.ID,id))
+            if(strcmp(p.ID,id)==0)
             {
                 //aux=SaisirUtilisateur();
                 fprintf(f2,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",aux.nom,aux.prenom,aux.CIN,aux.DateNaissance.jours,aux.DateNaissance.mois,aux.DateNaissance.annee,aux.ID,aux.mdp,aux.genre,aux.role[0],aux.role[1],aux.role[2],aux.role[3],aux.BV,aux.v.vote);
@@ -87,7 +87,7 @@ int modifierUtilisateur( char * filename, char id, Utilisateur aux)
 
 }
 
-int supprimerUtilisateur(char * filename, int id)
+int supprimerUtilisateur(char * filename, char id [])
 {
     int tr=0;
     Utilisateur p;
@@ -97,7 +97,7 @@ int supprimerUtilisateur(char * filename, int id)
     {
         while(fscanf(f,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,&p.DateNaissance.jours,&p.DateNaissance.mois,&p.DateNaissance.annee,p.ID,p.mdp,&p.genre,&p.role[0],&p.role[1],&p.role[2],&p.role[3],&p.BV,&p.v.vote)!=EOF)
         {
-            if(p.ID == id)
+            if(strcmp(p.ID,id)==0)
                 tr=1;
             else
                 fprintf(f2,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",p.nom,p.prenom,p.CIN,p.DateNaissance.jours,p.DateNaissance.mois,p.DateNaissance.annee,p.ID,p.mdp,p.genre,p.role[0],p.role[1],p.role[2],p.role[3],p.BV,p.v.vote);
