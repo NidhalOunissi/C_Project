@@ -111,7 +111,7 @@ int supprimerUtilisateur(char * filename, char id [])
     return tr;
 }
 
-int chercherUtilisateur(char * filename, int id)
+int chercherUtilisateur(char * filename, char id [])
 {
     Utilisateur t;
     int tr=0;
@@ -120,7 +120,7 @@ int chercherUtilisateur(char * filename, int id)
     {
         while(tr==0 && (fscanf(f,"%s %s %s %d %d %d %s %s %d %d %d %d %d %d %d \n",t.nom,t.prenom,t.CIN,&t.DateNaissance.jours,&t.DateNaissance.mois,&t.DateNaissance.annee,t.ID,t.mdp,&t.genre,&t.role[0],&t.role[1],&t.role[2],&t.role[3],&t.BV,&t.v.vote)!=EOF))
         {
-            if(t.ID == id)
+            if(strcmp(t.ID,id)==0)
             {
                 tr=1;
                 return 1;

@@ -448,16 +448,19 @@ on_Modifier_Utilisateur_clicked        (GtkButton       *button,
     Notebook=lookup_widget(button,"notebook1");
     strcpy(convINT,gtk_entry_get_text(GTK_ENTRY(Id_mod)));
 
+    if(chercherUtilisateur("Utilisateur.txt",convINT))
+    {
+    ModificationUtilisateur=create_ModificationUtilisateur();
+    gtk_widget_show(ModificationUtilisateur);
+    }
+    
+
+
+
+
     //id_modif = atoi(convINT);
     //gtk_notebook_prev_page(Notebook);
     //gtk_notebook_prev_page(Notebook);
-
-    ModificationUtilisateur=create_ModificationUtilisateur();
-    gtk_widget_show(ModificationUtilisateur);
-
-
-
-
     /*GtkWidget * Nom_Aux;
     GtkWidget * Prenom_Aux; */
     //modifierUtilisateur("Utilisateur.txt",id,aux,utl);
@@ -980,6 +983,13 @@ void
 on_Btn_Deconnexion6_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {
+    GtkWidget * Identif;
+    GtkWidget * Acceuil_Obs;
+
+    Acceuil_Obs=lookup_widget(button,"Accueil_Obs");
+    gtk_widget_hide(Acceuil_Obs);
+    Identif=create_Identification();
+    gtk_widget_show(Identif);
 
 }
 
@@ -988,6 +998,13 @@ void
 on_GestionReclamation2_clicked         (GtkButton       *button,
                                         gpointer         user_data)
 {
+    GtkWidget * GestRec;
+    GtkWidget * Acceuil_Obs;
+
+    Acceuil_Obs=lookup_widget(button,"Accueil_Obs");
+    gtk_widget_hide(Acceuil_Obs);
+    GestRec=create_reclamation();
+    gtk_widget_show(GestRec);
 
 }
 
@@ -1144,6 +1161,8 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
     ComboBV_Modif=lookup_widget(button,"ArrondissementModif");
 
     Calendar_Modif=lookup_widget(button,"calendar3");
+
+    gtk_entry_set_text(GTK_ENTRY(Nom_Modif),"Mohssen");
 
     gtk_calendar_get_date(Calendar_Modif,&aux.DateNaissance.jours,&aux.DateNaissance.mois,&aux.DateNaissance.annee);
 

@@ -47,7 +47,7 @@ Utilisateur SaisirUtilisateur ();
 int ajouterUtilisateur (char * filename, Utilisateur p);
 int modifierUtilisateur( char * filename, char id [], Utilisateur aux);
 int supprimerUtilisateur(char * utilisateurs, char id []);
-int chercherUtilisateur(char * filename, int id);
+int chercherUtilisateur(char * filename, char id []);
 int VerifierConnexion (char * filename, Credentials c, int i);
 void AfficherUtl (GtkWidget *liste);
 
