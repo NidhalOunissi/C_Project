@@ -1162,7 +1162,7 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
 
     Calendar_Modif=lookup_widget(button,"calendar3");
 
-    gtk_entry_set_text(GTK_ENTRY(Nom_Modif),"Mohssen");
+    //gtk_entry_set_text(GTK_ENTRY(Nom_Modif),"Mohssen");
 
     gtk_calendar_get_date(Calendar_Modif,&aux.DateNaissance.jours,&aux.DateNaissance.mois,&aux.DateNaissance.annee);
 
@@ -1206,7 +1206,14 @@ on_ModiferBtn_clicked                  (GtkButton       *button,
 
         test5=modifierUtilisateur("Utilisateur.txt",convINT,aux);
 
-        printf("%d",test5);
+        GtkWidget * dialogAjt;
+
+        if(test5)
+        {
+            dialogAjt=create_dialogAjt();
+            gtk_widget_show(dialogAjt);
+
+        }
 
         flag_Mod=0;
 
@@ -1238,6 +1245,19 @@ on_PosteElecteurModif_toggled          (GtkToggleButton *togglebutton,
     }
     else 
         utl.role[2]=1;
+
+}
+
+
+void
+on_okbutton1_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+    GtkWidget * ExitDiag;
+   
+    ExitDiag=lookup_widget(button,"dialogAjt");
+    gtk_widget_hide(ExitDiag);
 
 }
 

@@ -5505,13 +5505,14 @@ create_ModificationUtilisateur (void)
   GtkWidget *GenreModif;
   GtkWidget *DateNaissanceModif;
   GtkWidget *NationaliteModif;
-  GtkWidget *HommeModif;
-  GSList *HommeModif_group = NULL;
-  GtkWidget *EtrangerModif;
-  GtkWidget *TunisienModif;
-  GtkWidget *FemmeModif;
   GtkWidget *NomModiflbl;
   GtkWidget *PrenomModiflbl;
+  GtkWidget *FemmeModif;
+  GSList *FemmeModif_group = NULL;
+  GtkWidget *HommeModif;
+  GtkWidget *TunisienModif;
+  GSList *TunisienModif_group = NULL;
+  GtkWidget *EtrangerModif;
   GtkWidget *label226;
   GtkWidget *frame22;
   GtkWidget *alignment105;
@@ -5538,11 +5539,6 @@ create_ModificationUtilisateur (void)
   GtkWidget *hbox84;
   GtkWidget *image83;
   GtkWidget *label240;
-  GtkWidget *Exit7;
-  GtkWidget *alignment108;
-  GtkWidget *hbox86;
-  GtkWidget *image85;
-  GtkWidget *label242;
   GtkWidget *label244;
   GtkWidget *label245;
   GtkWidget *label248;
@@ -5559,6 +5555,11 @@ create_ModificationUtilisateur (void)
   GtkWidget *PosteElecteurModif;
   GtkWidget *ArrondissementModif;
   GtkWidget *lbl;
+  GtkWidget *Exit7;
+  GtkWidget *alignment108;
+  GtkWidget *hbox86;
+  GtkWidget *image85;
+  GtkWidget *label242;
 
   ModificationUtilisateur = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (ModificationUtilisateur), _("Modification"));
@@ -5617,34 +5618,6 @@ create_ModificationUtilisateur (void)
   gtk_fixed_put (GTK_FIXED (fixed36), NationaliteModif, 24, 408);
   gtk_widget_set_size_request (NationaliteModif, 88, 17);
 
-  HommeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Homme"));
-  gtk_widget_show (HommeModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), HommeModif, 384, 144);
-  gtk_widget_set_size_request (HommeModif, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (HommeModif), HommeModif_group);
-  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (HommeModif));
-
-  EtrangerModif = gtk_radio_button_new_with_mnemonic (NULL, _("Etranger(e)"));
-  gtk_widget_show (EtrangerModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), EtrangerModif, 208, 408);
-  gtk_widget_set_size_request (EtrangerModif, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (EtrangerModif), HommeModif_group);
-  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (EtrangerModif));
-
-  TunisienModif = gtk_radio_button_new_with_mnemonic (NULL, _("Tunisien(ne)"));
-  gtk_widget_show (TunisienModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), TunisienModif, 384, 408);
-  gtk_widget_set_size_request (TunisienModif, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (TunisienModif), HommeModif_group);
-  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (TunisienModif));
-
-  FemmeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
-  gtk_widget_show (FemmeModif);
-  gtk_fixed_put (GTK_FIXED (fixed36), FemmeModif, 208, 144);
-  gtk_widget_set_size_request (FemmeModif, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (FemmeModif), HommeModif_group);
-  HommeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (FemmeModif));
-
   NomModiflbl = gtk_label_new (_("Nom"));
   gtk_widget_show (NomModiflbl);
   gtk_fixed_put (GTK_FIXED (fixed36), NomModiflbl, 24, 40);
@@ -5654,6 +5627,36 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (PrenomModiflbl);
   gtk_fixed_put (GTK_FIXED (fixed36), PrenomModiflbl, 32, 96);
   gtk_widget_set_size_request (PrenomModiflbl, 57, 17);
+
+  FemmeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Femme"));
+  gtk_widget_show (FemmeModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), FemmeModif, 208, 144);
+  gtk_widget_set_size_request (FemmeModif, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (FemmeModif), FemmeModif_group);
+  FemmeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (FemmeModif));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (FemmeModif), TRUE);
+
+  HommeModif = gtk_radio_button_new_with_mnemonic (NULL, _("Homme"));
+  gtk_widget_show (HommeModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), HommeModif, 384, 144);
+  gtk_widget_set_size_request (HommeModif, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (HommeModif), FemmeModif_group);
+  FemmeModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (HommeModif));
+
+  TunisienModif = gtk_radio_button_new_with_mnemonic (NULL, _("Tunisien(ne)"));
+  gtk_widget_show (TunisienModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), TunisienModif, 384, 408);
+  gtk_widget_set_size_request (TunisienModif, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (TunisienModif), TunisienModif_group);
+  TunisienModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (TunisienModif));
+
+  EtrangerModif = gtk_radio_button_new_with_mnemonic (NULL, _("Etranger(e)"));
+  gtk_widget_show (EtrangerModif);
+  gtk_fixed_put (GTK_FIXED (fixed36), EtrangerModif, 208, 408);
+  gtk_widget_set_size_request (EtrangerModif, 116, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (EtrangerModif), TunisienModif_group);
+  TunisienModif_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (EtrangerModif));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (EtrangerModif), TRUE);
 
   label226 = gtk_label_new (_("<b>Informations G\303\251n\303\251rales</b>"));
   gtk_widget_show (label226);
@@ -5783,27 +5786,6 @@ create_ModificationUtilisateur (void)
   gtk_widget_show (label240);
   gtk_box_pack_start (GTK_BOX (hbox84), label240, FALSE, FALSE, 0);
 
-  Exit7 = gtk_button_new ();
-  gtk_widget_show (Exit7);
-  gtk_fixed_put (GTK_FIXED (fixed35), Exit7, 1080, 752);
-  gtk_widget_set_size_request (Exit7, 80, 77);
-
-  alignment108 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment108);
-  gtk_container_add (GTK_CONTAINER (Exit7), alignment108);
-
-  hbox86 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox86);
-  gtk_container_add (GTK_CONTAINER (alignment108), hbox86);
-
-  image85 = gtk_image_new_from_stock ("gtk-close", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image85);
-  gtk_box_pack_start (GTK_BOX (hbox86), image85, FALSE, FALSE, 0);
-
-  label242 = gtk_label_new_with_mnemonic (_("Exit"));
-  gtk_widget_show (label242);
-  gtk_box_pack_start (GTK_BOX (hbox86), label242, FALSE, FALSE, 0);
-
   label244 = gtk_label_new ("");
   gtk_widget_show (label244);
   gtk_fixed_put (GTK_FIXED (fixed35), label244, 960, 64);
@@ -5891,26 +5873,44 @@ create_ModificationUtilisateur (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame21), lbl);
   gtk_label_set_use_markup (GTK_LABEL (lbl), TRUE);
 
+  Exit7 = gtk_button_new ();
+  gtk_widget_show (Exit7);
+  gtk_fixed_put (GTK_FIXED (fixed35), Exit7, 1080, 752);
+  gtk_widget_set_size_request (Exit7, 80, 77);
+
+  alignment108 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment108);
+  gtk_container_add (GTK_CONTAINER (Exit7), alignment108);
+
+  hbox86 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox86);
+  gtk_container_add (GTK_CONTAINER (alignment108), hbox86);
+
+  image85 = gtk_image_new_from_stock ("gtk-close", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image85);
+  gtk_box_pack_start (GTK_BOX (hbox86), image85, FALSE, FALSE, 0);
+
+  label242 = gtk_label_new_with_mnemonic (_("Exit"));
+  gtk_widget_show (label242);
+  gtk_box_pack_start (GTK_BOX (hbox86), label242, FALSE, FALSE, 0);
+
+  g_signal_connect ((gpointer) FemmeModif, "toggled",
+                    G_CALLBACK (on_FemmeModif_toggled),
+                    NULL);
   g_signal_connect ((gpointer) HommeModif, "toggled",
                     G_CALLBACK (on_HommeModif_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) EtrangerModif, "toggled",
-                    G_CALLBACK (on_EtrangerModif_toggled),
                     NULL);
   g_signal_connect ((gpointer) TunisienModif, "toggled",
                     G_CALLBACK (on_TunisienModif_toggled),
                     NULL);
-  g_signal_connect ((gpointer) FemmeModif, "toggled",
-                    G_CALLBACK (on_FemmeModif_toggled),
+  g_signal_connect ((gpointer) EtrangerModif, "toggled",
+                    G_CALLBACK (on_EtrangerModif_toggled),
                     NULL);
   g_signal_connect ((gpointer) ReinitialiserModif, "clicked",
                     G_CALLBACK (on_ReinitialiserModif_clicked),
                     NULL);
   g_signal_connect ((gpointer) ModiferBtn, "clicked",
                     G_CALLBACK (on_ModiferBtn_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) Exit7, "clicked",
-                    G_CALLBACK (on_Exit7_clicked),
                     NULL);
   g_signal_connect ((gpointer) PosteAdminModif, "toggled",
                     G_CALLBACK (on_PosteAdminModif_toggled),
@@ -5923,6 +5923,9 @@ create_ModificationUtilisateur (void)
                     NULL);
   g_signal_connect ((gpointer) PosteElecteurModif, "toggled",
                     G_CALLBACK (on_PosteElecteurModif_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) Exit7, "clicked",
+                    G_CALLBACK (on_Exit7_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -5937,12 +5940,12 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, GenreModif, "GenreModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, DateNaissanceModif, "DateNaissanceModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, NationaliteModif, "NationaliteModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, HommeModif, "HommeModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, EtrangerModif, "EtrangerModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, TunisienModif, "TunisienModif");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, FemmeModif, "FemmeModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, NomModiflbl, "NomModiflbl");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PrenomModiflbl, "PrenomModiflbl");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, FemmeModif, "FemmeModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, HommeModif, "HommeModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, TunisienModif, "TunisienModif");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, EtrangerModif, "EtrangerModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label226, "label226");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, frame22, "frame22");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment105, "alignment105");
@@ -5969,11 +5972,6 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, hbox84, "hbox84");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, image83, "image83");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label240, "label240");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, Exit7, "Exit7");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment108, "alignment108");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, hbox86, "hbox86");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, image85, "image85");
-  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label242, "label242");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label244, "label244");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label245, "label245");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label248, "label248");
@@ -5990,7 +5988,65 @@ create_ModificationUtilisateur (void)
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, PosteElecteurModif, "PosteElecteurModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, ArrondissementModif, "ArrondissementModif");
   GLADE_HOOKUP_OBJECT (ModificationUtilisateur, lbl, "lbl");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, Exit7, "Exit7");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, alignment108, "alignment108");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, hbox86, "hbox86");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, image85, "image85");
+  GLADE_HOOKUP_OBJECT (ModificationUtilisateur, label242, "label242");
 
   return ModificationUtilisateur;
+}
+
+GtkWidget*
+create_dialogAjt (void)
+{
+  GtkWidget *dialogAjt;
+  GtkWidget *dialog_vbox2;
+  GtkWidget *fixed39;
+  GtkWidget *label251;
+  GtkWidget *dialog_action_area2;
+  GtkWidget *okbutton1;
+
+  dialogAjt = gtk_dialog_new ();
+  gtk_window_set_title (GTK_WINDOW (dialogAjt), _("Ajout avec succ\303\250s"));
+  gtk_window_set_type_hint (GTK_WINDOW (dialogAjt), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_dialog_set_has_separator (GTK_DIALOG (dialogAjt), FALSE);
+
+  dialog_vbox2 = GTK_DIALOG (dialogAjt)->vbox;
+  gtk_widget_show (dialog_vbox2);
+
+  fixed39 = gtk_fixed_new ();
+  gtk_widget_show (fixed39);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox2), fixed39, TRUE, TRUE, 0);
+
+  label251 = gtk_label_new (_("Ajout avec succ\303\250s "));
+  gtk_widget_show (label251);
+  gtk_fixed_put (GTK_FIXED (fixed39), label251, 55, 36);
+  gtk_widget_set_size_request (label251, 128, 17);
+  gtk_label_set_justify (GTK_LABEL (label251), GTK_JUSTIFY_RIGHT);
+  gtk_misc_set_alignment (GTK_MISC (label251), 0.56, 0.39);
+
+  dialog_action_area2 = GTK_DIALOG (dialogAjt)->action_area;
+  gtk_widget_show (dialog_action_area2);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_SPREAD);
+
+  okbutton1 = gtk_button_new_from_stock ("gtk-ok");
+  gtk_widget_show (okbutton1);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dialogAjt), okbutton1, GTK_RESPONSE_OK);
+  GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) okbutton1, "clicked",
+                    G_CALLBACK (on_okbutton1_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (dialogAjt, dialogAjt, "dialogAjt");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialogAjt, dialog_vbox2, "dialog_vbox2");
+  GLADE_HOOKUP_OBJECT (dialogAjt, fixed39, "fixed39");
+  GLADE_HOOKUP_OBJECT (dialogAjt, label251, "label251");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialogAjt, dialog_action_area2, "dialog_action_area2");
+  GLADE_HOOKUP_OBJECT (dialogAjt, okbutton1, "okbutton1");
+
+  return dialogAjt;
 }
 
